@@ -39,24 +39,40 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
       .item {
         padding: 0px;
         background: #fff;
+        color: #000;
         p {
           color: #000;
         }
         .title {
-          font-size: 18px;
+          font-size: 17px;
           font-weight: 600;
           margin-bottom: 2px;
+        }
+        .sub-title {
+          font-weight: 500;
+          letter-spacing: 1.5px;
+        }
+        label {
+          font-size: 14px;
         }
         .label-title {
           background: $positive;
           color: #fff;
           font-weight: 600;
           padding: 3px 5px;
-          margin: -5px -5px 5px -5px;
+          margin: -5px;
           border-right: 1px solid #ddd;
+        }
+        .box-interest {
+          margin: 5px 0;
         }
         .row {
           padding: 0;
+          .col {
+            .row .col {
+              padding: 5px 0;
+            }
+          }
         }
       }
     }
