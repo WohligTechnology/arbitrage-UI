@@ -76,7 +76,7 @@
                   <label for="">{{currency1}}</label>
                 </div>
                 <div class="col col-66">
-                  {{market1Data.bitcoin}}
+                  {{market1Data.bitcoin|number:5}}
                 </div>
               </div>
               <div class="row">
@@ -84,7 +84,7 @@
                   <label for="">{{currency2}}</label>
                 </div>
                 <div class="col col-66">
-                  {{market1Data.other}}
+                  {{market1Data.other|number:1}}
                 </div>
               </div>
             </div>
@@ -96,7 +96,7 @@
                   <label for="">{{currency1}}</label>
                 </div>
                 <div class="col col-66">
-                  {{market2Data.bitcoin}}
+                  {{market2Data.bitcoin|number:5}}
                 </div>
               </div>
               <div class="row">
@@ -104,7 +104,7 @@
                   <label for=""> {{currency2}}</label>
                 </div>
                 <div class="col col-66">
-                  {{market2Data.other}}
+                  {{market2Data.other|number:1}}
                 </div>
               </div>
             </div>
@@ -127,7 +127,7 @@
                   <label for=""> Ask</label>
                 </div>
                 <div class="col col-66">
-                  {{ratioBuySell.ask}} (0.5)
+                  {{ratioBuySell.ask|number:8}}
                 </div>
               </div>
               <div class="row">
@@ -135,7 +135,7 @@
                   <label for=""> Bid </label>
                 </div>
                 <div class="col col-66">
-                  {{ratioBuySell.bid}} (0.5)
+                  {{ratioBuySell.bid|number:8}}
                 </div>
               </div>
             </div>
@@ -147,7 +147,7 @@
                   <label for=""> Ask </label>
                 </div>
                 <div class="col col-66">
-                  {{ratioSellBuy.ask}} (0.5)
+                  {{ratioSellBuy.ask|number:8}}
                 </div>
               </div>
               <div class="row">
@@ -155,7 +155,7 @@
                   <label for=""> Bid </label>
                 </div>
                 <div class="col col-66">
-                  {{ratioSellBuy.ask}} (0.5)
+                  {{ratioSellBuy.bid|number:8}}
                 </div>
               </div>
             </div>
@@ -178,7 +178,7 @@
                   <label for=""> Buy Sell </label>
                 </div>
                 <div class="col">
-                  1.009
+                  {{ratioBuySell.ratio|number:4}}
                 </div>
               </div>
               <div class="row">
@@ -186,7 +186,7 @@
                   <label for="">RatioReq</label>
                 </div>
                 <div class="col">
-                  1.003
+                  {{ratioBuySell.condition|number:4}}
                 </div>
               </div>
               <div class="row">
@@ -194,7 +194,7 @@
                   <label for=""> Min Qty </label>
                 </div>
                 <div class="col">
-                  0.2
+                  {{ratioBuySell.amountBTC}}
                 </div>
               </div>
             </div>
@@ -206,7 +206,7 @@
                   <label for=""> Sell Buy </label>
                 </div>
                 <div class="col">
-                  1.002
+                  {{ratioSellBuy.ratio|number:4}}
                 </div>
               </div>
               <div class="row">
@@ -214,7 +214,7 @@
                   <label for=""> RatioReq</label>
                 </div>
                 <div class="col">
-                  1.003
+                  {{ratioSellBuy.condition|number:4}}
                 </div>
               </div>
               <div class="row">
@@ -222,7 +222,7 @@
                   <label for=""> Min Qty </label>
                 </div>
                 <div class="col">
-                  0.2
+                  {{ratioSellBuy.amountBTC}}
                 </div>
               </div>
             </div>
