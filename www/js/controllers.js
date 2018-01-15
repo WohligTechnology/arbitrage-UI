@@ -9,9 +9,10 @@ angular.module('starter.controllers', [])
     function ($scope, $timeout, apiService) {
       $scope.previousAmount = 32000;
 
-      $scope.market = "XVG/BTC";
+
       $scope.currency1 = "BTC";
-      $scope.currency2 = "XVG";
+      $scope.currency2 = "LRC";
+      $scope.market = $scope.currency2 + "/" + $scope.currency1;
 
       function getCurrentAmount() {
         async.parallel({
@@ -28,7 +29,7 @@ angular.module('starter.controllers', [])
 
           $scope.market1Data = {};
           $scope.market1Data.bitcoin = parseFloat($scope.newBinance.data.BTC.available) + parseFloat($scope.newBinance.data.BTC.onOrder);
-          $scope.market1Data.other = parseFloat($scope.newBinance.data.XVG.available) + parseFloat($scope.newBinance.data.XVG.onOrder);
+          $scope.market1Data.other = parseFloat($scope.newBinance.data[$scope.currency2].available) + parseFloat($scope.newBinance.data[$scope.currency2].onOrder);
 
 
           $scope.newHitbtc = _.find($scope.newBalance, function (n) {
@@ -37,12 +38,12 @@ angular.module('starter.controllers', [])
 
           $scope.market2Data = {};
           $scope.market2Data.bitcoin = parseFloat($scope.newHitbtc.data.BTC.cash);
-          $scope.market2Data.other = parseFloat($scope.newHitbtc.data.XVG.cash);
+          $scope.market2Data.other = parseFloat($scope.newHitbtc.data[$scope.currency2].cash);
 
 
           $scope.totalBitcoin = parseFloat($scope.newBinance.data.BTC.available) + parseFloat($scope.newHitbtc.data.BTC.cash);
-          $scope.totalVerge = parseFloat($scope.newBinance.data.XVG.available) + parseFloat($scope.newHitbtc.data.XVG.cash);
-          $scope.vergeBitCoinPrice = parseFloat(data.marketsData[0].data.XVGBTC.bid);
+          $scope.totalVerge = parseFloat($scope.newBinance.data[$scope.currency2].available) + parseFloat($scope.newHitbtc.data[$scope.currency2].cash);
+          $scope.vergeBitCoinPrice = parseFloat(data.marketsData[0].data[$scope.currency2 + "BTC"].bid);
           $scope.vergeBitcoinValue = $scope.totalVerge * $scope.vergeBitCoinPrice;
 
           $scope.totalBitcoinValue = $scope.totalBitcoin + $scope.vergeBitcoinValue;
