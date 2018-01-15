@@ -15,7 +15,7 @@
               </label>
             </div>
             <div class="col col-66">
-              {{previousAmount|number:2}}
+              ₹ {{previousAmount|number:2}}
             </div>
           </div>
           <div class="row">
@@ -25,7 +25,7 @@
               </label>
             </div>
             <div class="col col-66">
-              {{currentValue|number:2}}
+              ₹ {{currentValue|number:2}}
             </div>
           </div>
           <div class="row">
@@ -35,6 +35,24 @@
             </div>
             <div class="col col-66">
               {{growth|number:2}}%
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-33">
+              <label for="">Total {{currency1}}
+              </label>
+            </div>
+            <div class="col col-66">
+              {{totalBitcoin|number:5}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-33">
+              <label for="">Total {{currency2}}
+              </label>
+            </div>
+            <div class="col col-66">
+              {{totalVerge|number:2}}
             </div>
           </div>
         </div>
@@ -84,7 +102,7 @@
                   <label for="">{{currency2}}</label>
                 </div>
                 <div class="col col-66">
-                  {{market1Data.other|number:1}}
+                  {{market1Data.other|number:2}}
                 </div>
               </div>
             </div>
@@ -104,7 +122,7 @@
                   <label for=""> {{currency2}}</label>
                 </div>
                 <div class="col col-66">
-                  {{market2Data.other|number:1}}
+                  {{market2Data.other|number:2}}
                 </div>
               </div>
             </div>
