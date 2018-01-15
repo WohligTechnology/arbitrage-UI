@@ -9,11 +9,15 @@ angular.module('starter.controllers', [])
     function ($scope, $timeout, apiService) {
       $scope.previousAmount = 32000;
 
+      $scope.market = "XVG/BTC";
+      $scope.currency1 = "BTC";
+      $scope.currency2 = "XVG";
+
       function getCurrentAmount() {
         async.parallel({
           balance: apiService.balance,
           marketsData: apiService.getLastMarketData,
-          koinex: apiService.getKoinex
+          // koinex: apiService.getKoinex
         }, function (err, data) {
           $scope.oldBalance = data.balance.old;
           $scope.newBalance = data.balance.new;

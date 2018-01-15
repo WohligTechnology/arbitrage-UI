@@ -1,4 +1,4 @@
-<ion-view view-title="Market (BTC/USDT)">
+<ion-view view-title="Market {{market}}">
   <ion-content>
     <div class="list card list-markets">
       <div class="item">
@@ -15,7 +15,7 @@
               </label>
             </div>
             <div class="col col-66">
-              2000
+              {{previousAmount}}
             </div>
           </div>
           <div class="row">
@@ -25,7 +25,7 @@
               </label>
             </div>
             <div class="col col-66">
-              2200
+              {{currentValue}}
             </div>
           </div>
           <div class="row">
@@ -34,7 +34,7 @@
               </label>
             </div>
             <div class="col col-66">
-              20%
+              {{growth}}%
             </div>
           </div>
         </div>
@@ -73,18 +73,18 @@
             <div class="bid-box">
               <div class="row">
                 <div class="col col-33">
-                  <label for="">BTC</label>
+                  <label for="">{{currency1}}</label>
                 </div>
                 <div class="col col-66">
-                  0.02124
+                  {{market1Data.bitcoin}}
                 </div>
               </div>
               <div class="row">
                 <div class="col col-33">
-                  <label for="">USDT</label>
+                  <label for="">{{currency2}}</label>
                 </div>
                 <div class="col col-66">
-                  24.0283
+                  {{market1Data.other}}
                 </div>
               </div>
             </div>
@@ -93,18 +93,18 @@
             <div class="bid-box">
               <div class="row">
                 <div class="col col-33">
-                  <label for="">BTC</label>
+                  <label for="">{{currency1}}</label>
                 </div>
                 <div class="col col-66">
-                  0.02124
+                  {{market2Data.bitcoin}}
                 </div>
               </div>
               <div class="row">
                 <div class="col col-33">
-                  <label for=""> USDT</label>
+                  <label for=""> {{currency2}}</label>
                 </div>
                 <div class="col col-66">
-                  24.0283
+                  {{market2Data.other}}
                 </div>
               </div>
             </div>
@@ -127,7 +127,7 @@
                   <label for=""> Ask</label>
                 </div>
                 <div class="col col-66">
-                  13100 (0.5)
+                  {{ratioBuySell.ask}} (0.5)
                 </div>
               </div>
               <div class="row">
@@ -135,7 +135,7 @@
                   <label for=""> Bid </label>
                 </div>
                 <div class="col col-66">
-                  13000 (0.3)
+                  {{ratioBuySell.bid}} (0.5)
                 </div>
               </div>
             </div>
@@ -147,7 +147,7 @@
                   <label for=""> Ask </label>
                 </div>
                 <div class="col col-66">
-                  13100 (0.5)
+                  {{ratioSellBuy.ask}} (0.5)
                 </div>
               </div>
               <div class="row">
@@ -155,7 +155,7 @@
                   <label for=""> Bid </label>
                 </div>
                 <div class="col col-66">
-                  13000 (0.3)
+                  {{ratioSellBuy.ask}} (0.5)
                 </div>
               </div>
             </div>
@@ -191,7 +191,7 @@
               </div>
               <div class="row">
                 <div class="col">
-                  <label for="">  Min Qty </label>
+                  <label for=""> Min Qty </label>
                 </div>
                 <div class="col">
                   0.2
@@ -219,7 +219,7 @@
               </div>
               <div class="row">
                 <div class="col">
-                  <label for=""> Min Qty  </label>
+                  <label for=""> Min Qty </label>
                 </div>
                 <div class="col">
                   0.2
