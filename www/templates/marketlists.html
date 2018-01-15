@@ -1,4 +1,4 @@
-<ion-view view-title="Market {{market}}">
+<ion-view view-title="Market ({{market}})">
   <ion-content>
     <div class="list card list-markets">
       <div class="item">
@@ -15,7 +15,7 @@
               </label>
             </div>
             <div class="col col-66">
-              {{previousAmount}}
+              {{previousAmount|number:2}}
             </div>
           </div>
           <div class="row">
@@ -25,7 +25,7 @@
               </label>
             </div>
             <div class="col col-66">
-              {{currentValue}}
+              {{currentValue|number:2}}
             </div>
           </div>
           <div class="row">
@@ -34,7 +34,7 @@
               </label>
             </div>
             <div class="col col-66">
-              {{growth}}%
+              {{growth|number:2}}%
             </div>
           </div>
         </div>

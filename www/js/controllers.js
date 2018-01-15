@@ -49,10 +49,10 @@ angular.module('starter.controllers', [])
           if (data.koinex && data.koinex.prices) {
             $scope.bitcoinToInr = parseFloat(data.koinex.prices.BTC);
           } else {
-            $scope.bitcoinToInr = 1220000;
+            $scope.bitcoinToInr = 1020000;
           }
           $scope.currentValue = _.floor($scope.totalBitcoinValue * $scope.bitcoinToInr) + 20000;
-          $scope.growth = _.floor(($scope.currentValue / $scope.previousAmount - 1) * 100);
+          $scope.growth = ($scope.currentValue / $scope.previousAmount - 1) * 100;
         });
       }
       getCurrentAmount();
