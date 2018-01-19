@@ -1,14 +1,14 @@
-<ion-view>
+<ion-view view-title="Transaction List">
   <ion-content>
     <ul class="list list-markets">
-      <li class="item">
+      <li class="item" ng-repeat="process in processes">
         <div class="">
           <div class="row">
             <div class="col">
-              <p class="date">Fri, 19 Jan, 12:04:30</p>
+              <p class="date">{{process.createdAt|date:'EEE, d MMM, H:mm:ss'}}</p>
             </div>
             <div class="col">
-              <p class="date">Fri, 19 Jan, 12:04:33
+              <p class="date">{{process.updatedAt|date:'EEE, d MMM, H:mm:ss'}}
                 <span class="right">50 s</span>
               </p>
             </div>
@@ -16,58 +16,51 @@
           </div>
           <div class="row">
             <div class="col">
-              <h1>
-                <span class="small-title">Qty:</span> 3000</h1>
+              <h2>
+                <span class="small-title">Qty:</span> {{process.transaction1.amountBTC|number:0}}</h2>
             </div>
             <div class="col">
-              <h1>
-                <span class="small-title">Rate:</span> 3.2%</h1>
+              <h3>
+                <span class="small-title">Rate:</span> {{(process.ratio-1)*100|number:2}}%</h3>
             </div>
 
           </div>
-          <div class="row">
+          <div class="row" ng-if="process.processType=='BuySell'">
             <div class="col">
-              <a class="button button-small button-block button-outline icon-right ion-clock button-positive">Binance</a>
+              <a ng-class="{
+                            'ion-clock button-positive':process.transaction1.status=='Pending',
+                          'ion-checkmark-circled button-balanced':process.transaction1.status=='Completed',
+                          'ion-close-circled button-assertive':process.transaction1.status=='Cancelled'
+                        }" class="button button-small button-block button-outline icon-right">Binance</a>
 
             </div>
             <div class="col">
-              <a class="button button-small button-block button-outline icon-right ion-clock button-positive">Hibtc</a>
+              <a ng-class="{
+                        'ion-clock button-positive':process.transaction2.status=='Pending',
+                      'ion-checkmark-circled button-balanced':process.transaction2.status=='Completed',
+                      'ion-close-circled button-assertive':process.transaction2.status=='Cancelled'
+                    }" class="button button-small button-block button-outline icon-right ">Hibtc</a>
             </div>
-          </div>
-        </div>
-      </li>
-      <li class="item">
-        <div class="">
-          <div class="row">
-            <div class="col">
-              <p class="date">Fri, 19 Jan, 12:04:30</p>
-            </div>
-            <div class="col">
-              <p class="date">Fri, 19 Jan, 12:04:33
-                <span class="right">50 s</span>
-              </p>
-            </div>
+
 
           </div>
-          <div class="row">
+          <div class="row" ng-if="process.processType=='SellBuy'">
             <div class="col">
-              <h1>
-                <span class="small-title">Qty:</span> 3000</h1>
+              <a ng-class="{
+                    'ion-clock button-positive':process.transaction2.status=='Pending',
+                  'ion-checkmark-circled button-balanced':process.transaction2.status=='Completed',
+                  'ion-close-circled button-assertive':process.transaction2.status=='Cancelled'
+                }" class="button button-small button-block button-outline icon-right ">Hibtc</a>
             </div>
             <div class="col">
-              <h1>
-                <span class="small-title">Rate:</span> 3.2%</h1>
+              <a ng-class="{
+                    'ion-clock button-positive':process.transaction1.status=='Pending',
+                  'ion-checkmark-circled button-balanced':process.transaction1.status=='Completed',
+                  'ion-close-circled button-assertive':process.transaction1.status=='Cancelled'
+                }" class="button button-small button-block button-outline icon-right">Binance</a>
+
             </div>
 
-          </div>
-          <div class="row">
-            <div class="col">
-              <a class="button button-small button-block button-outline icon-right ion-checkmark-circled button-balanced">Binance</a>
-
-            </div>
-            <div class="col">
-              <a class="button button-small button-block button-outline icon-right ion-close-circled button-assertive">Hibtc</a>
-            </div>
           </div>
         </div>
       </li>

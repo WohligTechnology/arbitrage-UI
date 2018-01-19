@@ -84,4 +84,11 @@ angular.module('starter.controllers', [])
 
     })
 
-  .controller('MarketlistsCtrl', function ($scope, $stateParams) {});
+  .controller('MarketlistsCtrl', function ($scope, $stateParams, apiService) {
+
+    apiService.searchProcess(function (data) {
+      $scope.processes = data.results;
+    });
+
+
+  });

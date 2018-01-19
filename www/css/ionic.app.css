@@ -9923,7 +9923,7 @@ a.button {
   padding: 0; }
 
 span.small-title {
-  font-size: 0.3em;
+  font-size: 0.5em;
   color: #888; }
 
 p.date {
@@ -9932,6 +9932,17 @@ p.date {
   margin: 0px; }
   p.date .right {
     float: right; }
+
+.list-markets h2 {
+  font-size: 26px;
+  line-height: 32px;
+  font-weight: 500;
+  margin-top: 7px; }
+
+.list-markets h3 {
+  font-size: 21px;
+  line-height: 35px;
+  margin-top: 7px; }
 
 .list-markets .row {
   padding: 0px; }

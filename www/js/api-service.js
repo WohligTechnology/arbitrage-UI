@@ -38,6 +38,13 @@ angular.module('apiService', [])
         $http.post(adminurl + "MarketsData/getBestScripts").then(function (data) {
           callback(data.data.data);
         });
+      },
+      searchProcess: function (callback) {
+        $http.post(adminurl + "Process/search", {
+          page: 1
+        }).then(function (data) {
+          callback(data.data.data);
+        });
       }
       // This is a demo Service for POST Method.
 
