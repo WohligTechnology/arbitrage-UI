@@ -9918,3 +9918,29 @@ a.button {
       padding: 0; }
       .list-markets.card.list .item .row .col .row .col {
         padding: 5px 0; }
+
+.pad0 .col {
+  padding: 0; }
+
+span.small-title {
+  font-size: 0.3em;
+  color: #888; }
+
+p.date {
+  color: #888;
+  font-size: 0.8em;
+  margin: 0px; }
+  p.date .right {
+    float: right; }
+
+.list-markets .row {
+  padding: 0px; }
+
+.list-markets .col {
+  padding: 0px 3px; }
+
+.list-markets .button.button-block {
+  margin: 4px 0px; }
+
+.list-markets .item {
+  padding: 5px; }

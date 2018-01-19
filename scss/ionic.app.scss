@@ -35,9 +35,11 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 .pad0 {
   padding: 0;
 }
-.bold{
+
+.bold {
   font-weight: 600;
 }
+
 .list-markets {
   &.card {
     margin: 0px;
@@ -82,5 +84,38 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
         }
       }
     }
+  }
+}
+
+.pad0 .col {
+  padding: 0;
+}
+
+span.small-title {
+  font-size: 0.3em;
+  color: #888;
+}
+
+p.date {
+  color: #888;
+  font-size: 0.8em;
+  margin: 0px;
+  .right {
+    float: right;
+  }
+}
+
+.list-markets {
+  .row {
+    padding: 0px;
+  }
+  .col {
+    padding: 0px 3px;
+  }
+  .button.button-block {
+    margin: 4px 0px;
+  }
+  .item {
+    padding: 5px;
   }
 }
