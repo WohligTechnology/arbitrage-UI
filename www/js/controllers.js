@@ -86,17 +86,34 @@ angular.module('starter.controllers', [])
 
   .controller('MarketlistsCtrl', function ($scope, $stateParams, apiService) {
 
-    apiService.searchProcess(function (data) {
-      $scope.processes = data.results;
-    });
+
+    $scope.initial = function () {
+      $scope.pageNo = 0;
+      $scope.processes = [];
+    };
+    $scope.initial();
+
 
     $scope.differenceTime = function (process) {
       var difference = moment(process.updatedAt).diff(moment(process.createdAt), "second");
       return difference;
     };
 
-    $scope.nextPage = function () {
+
+    $scope.moreDataCanBeLoaded = function () {
+      return true;
+      // console.log("More Data");
+    };
+    $scope.loadMoreData = function () {
+      apiService.searchProcess(++$scope.pageNo, function (data) {
+        $scope.processes = _.concat($scope.processes, data.results);
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+      });
 
     };
-
+    $scope.doRefresh = function () {
+      $scope.initial();
+      $scope.loadMoreData();
+      $scope.$broadcast('scroll.refreshComplete');
+    };
   });

@@ -39,9 +39,9 @@ angular.module('apiService', [])
           callback(data.data.data);
         });
       },
-      searchProcess: function (callback) {
+      searchProcess: function (page, callback) {
         $http.post(adminurl + "Process/search", {
-          page: 1
+          page: page
         }).then(function (data) {
           callback(data.data.data);
         });
