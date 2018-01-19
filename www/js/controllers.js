@@ -11,7 +11,7 @@ angular.module('starter.controllers', [])
 
 
       $scope.currency1 = "BTC";
-      $scope.currency2 = "LRC";
+      $scope.currency2 = "POE";
       $scope.market = $scope.currency2 + "/" + $scope.currency1;
 
       function getCurrentAmount() {
