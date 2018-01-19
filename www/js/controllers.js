@@ -52,7 +52,7 @@ angular.module('starter.controllers', [])
           } else {
             $scope.bitcoinToInr = 1020000;
           }
-          $scope.currentValue = _.floor($scope.totalBitcoinValue * $scope.bitcoinToInr) + 20000;
+          $scope.currentValue = _.floor($scope.totalBitcoinValue * $scope.bitcoinToInr) + 8000;
           $scope.growth = ($scope.currentValue / $scope.previousAmount - 1) * 100;
         });
       }
