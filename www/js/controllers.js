@@ -90,5 +90,9 @@ angular.module('starter.controllers', [])
       $scope.processes = data.results;
     });
 
+    $scope.differenceTime = function (process) {
+      var difference = moment(process.updatedAt).diff(moment(process.createdAt), "second");
+      return difference;
+    };
 
   });
