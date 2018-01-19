@@ -90,6 +90,7 @@ angular.module('starter.controllers', [])
     $scope.initial = function () {
       $scope.pageNo = 0;
       $scope.processes = [];
+      $scope.$broadcast('scroll.infiniteScrollComplete');
     };
     $scope.initial();
 
@@ -107,7 +108,10 @@ angular.module('starter.controllers', [])
     $scope.loadMoreData = function () {
       apiService.searchProcess(++$scope.pageNo, function (data) {
         $scope.processes = _.concat($scope.processes, data.results);
-        $scope.$broadcast('scroll.infiniteScrollComplete');
+        if (data.results.length == 20) {
+          $scope.$broadcast('scroll.infiniteScrollComplete');
+        }
+
       });
 
     };
