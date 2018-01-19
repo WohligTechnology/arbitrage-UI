@@ -95,4 +95,8 @@ angular.module('starter.controllers', [])
       return difference;
     };
 
+    $scope.nextPage = function () {
+
+    };
+
   });

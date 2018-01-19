@@ -1,6 +1,6 @@
 <ion-view view-title="Transaction List">
   <ion-content>
-    <ul class="list list-markets">
+    <ul class="list list-transactions">
       <li class="item" ng-repeat="process in processes">
         <div class="">
           <div class="row">
@@ -31,7 +31,7 @@
                             'ion-clock button-positive':process.transaction1.status=='Pending',
                           'ion-checkmark-circled button-balanced':process.transaction1.status=='Completed',
                           'ion-close-circled button-assertive':process.transaction1.status=='Cancelled'
-                        }" class="button button-small button-block button-outline icon-right">Binance</a>
+                        }" class="button button-small button-block button-outline icon-right">Buy: Binance</a>
 
             </div>
             <div class="col">
@@ -39,7 +39,7 @@
                         'ion-clock button-positive':process.transaction2.status=='Pending',
                       'ion-checkmark-circled button-balanced':process.transaction2.status=='Completed',
                       'ion-close-circled button-assertive':process.transaction2.status=='Cancelled'
-                    }" class="button button-small button-block button-outline icon-right ">Hibtc</a>
+                    }" class="button button-small button-block button-outline icon-right ">Sell: Hibtc</a>
             </div>
 
 
@@ -50,14 +50,14 @@
                     'ion-clock button-positive':process.transaction2.status=='Pending',
                   'ion-checkmark-circled button-balanced':process.transaction2.status=='Completed',
                   'ion-close-circled button-assertive':process.transaction2.status=='Cancelled'
-                }" class="button button-small button-block button-outline icon-right ">Hibtc</a>
+                }" class="button button-small button-block button-outline icon-right ">Buy: Hibtc</a>
             </div>
             <div class="col">
               <a ng-class="{
                     'ion-clock button-positive':process.transaction1.status=='Pending',
                   'ion-checkmark-circled button-balanced':process.transaction1.status=='Completed',
                   'ion-close-circled button-assertive':process.transaction1.status=='Cancelled'
-                }" class="button button-small button-block button-outline icon-right">Binance</a>
+                }" class="button button-small button-block button-outline icon-right">Sell: Binance</a>
 
             </div>
 

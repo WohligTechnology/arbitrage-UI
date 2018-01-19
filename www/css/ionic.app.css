@@ -9933,25 +9933,25 @@ p.date {
   p.date .right {
     float: right; }
 
-.list-markets h2 {
+.list-transactions h2 {
   font-size: 26px;
   line-height: 32px;
   font-weight: 500;
   margin-top: 7px; }
 
-.list-markets h3 {
+.list-transactions h3 {
   font-size: 21px;
   line-height: 35px;
   margin-top: 7px; }
 
-.list-markets .row {
+.list-transactions .row {
   padding: 0px; }
 
-.list-markets .col {
+.list-transactions .col {
   padding: 0px 3px; }
 
-.list-markets .button.button-block {
+.list-transactions .button.button-block {
   margin: 4px 0px; }
 
-.list-markets .item {
+.list-transactions .item {
   padding: 5px; }
