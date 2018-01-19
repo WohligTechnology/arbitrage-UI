@@ -5,7 +5,7 @@ angular.module('starter.controllers', [])
 
   })
 
-  .controller('MarketlistsCtrl',
+  .controller('MarketStatusCtrl',
     function ($scope, $timeout, apiService) {
       $scope.previousAmount = 32000;
 
@@ -84,4 +84,4 @@ angular.module('starter.controllers', [])
 
     })
 
-  .controller('MarketlistCtrl', function ($scope, $stateParams) {});
+  .controller('MarketlistsCtrl', function ($scope, $stateParams) {});

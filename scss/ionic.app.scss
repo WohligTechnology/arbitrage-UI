@@ -32,6 +32,12 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   font-size: 16px;
 }
 
+.pad0 {
+  padding: 0;
+}
+.bold{
+  font-weight: 600;
+}
 .list-markets {
   &.card {
     margin: 0px;
