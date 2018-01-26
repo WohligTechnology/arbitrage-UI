@@ -10,6 +10,7 @@ angular.module('starter.controllers', [])
       $scope.valueOfBitcoin = 11300;
       $scope.currency1 = "Usd";
       $scope.currency2 = "Bitcoin";
+      $scope.market = "BTC/USDT";
 
       function getCurrentAmount() {
         async.parallel({
