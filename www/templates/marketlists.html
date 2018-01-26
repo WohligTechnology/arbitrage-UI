@@ -19,11 +19,15 @@
           <div class="row">
             <div class="col">
               <h2>
-                <span class="small-title">Qty:</span> {{process.transaction1.amountBTC|number:0}}</h2>
+                <span class="small-title">Qty:</span> {{process.transaction1.amountBTC|number:2}}</h2>
             </div>
             <div class="col">
               <h3>
                 <span class="small-title">Rate:</span> {{(process.ratio-1)*100|number:2}}%</h3>
+            </div>
+            <div class="col">
+              <h3>
+                <span class="small-title">Profit:</span> {{(process.ratio-1.002)*bitcoinPrice*process.transaction1.amountBTC|currency}}</h3>
             </div>
 
           </div>

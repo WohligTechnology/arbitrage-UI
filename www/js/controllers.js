@@ -68,7 +68,7 @@ angular.module('starter.controllers', [])
 
   .controller('MarketlistsCtrl', function ($scope, $stateParams, apiService) {
 
-
+    $scope.bitcoinPrice = 11300;
     $scope.initial = function () {
       $scope.pageNo = 0;
       $scope.processes = [];
