@@ -11,23 +11,34 @@
           <div class="row">
             <div class="col col-33">
               <label for="">
-                Value Usd
+                Amount Invested
               </label>
             </div>
             <div class="col col-66">
-              {{totalValueUsd|currency}}
+              Rs. 870000
             </div>
           </div>
           <div class="row">
             <div class="col col-33">
               <label for="">
-                Value Bitcoin
+                Value Usd
               </label>
             </div>
             <div class="col col-66">
-              <span ng-if="totalValueBitcoin">₿ </span>{{totalValueBitcoin|number:4}}
+              Rs. 1099200
             </div>
           </div>
+          <div class="row">
+            <div class="col col-33">
+              <label for="">
+                Percentage Growth
+              </label>
+            </div>
+            <div class="col col-66">
+              {{1099200/870000*100|number:2}}%
+            </div>
+          </div>
+
         </div>
       </div>
       <div class="item">
@@ -67,7 +78,7 @@
                   <label for="">{{currency1}}</label>
                 </div>
                 <div class="col col-66">
-                  {{market1Data.usd|number:2}}
+                  {{market1Data.usd|number:4}}
                 </div>
               </div>
               <div class="row">
@@ -75,7 +86,7 @@
                   <label for="">{{currency2}}</label>
                 </div>
                 <div class="col col-66">
-                  {{market1Data.bitcoin|number:4}}
+                  {{market1Data.bitcoin|number:0}}
                 </div>
               </div>
             </div>
@@ -87,7 +98,7 @@
                   <label for="">{{currency1}}</label>
                 </div>
                 <div class="col col-66">
-                  {{market2Data.usd|number:2}}
+                  {{market2Data.usd|number:4}}
                 </div>
               </div>
               <div class="row">
@@ -95,7 +106,7 @@
                   <label for=""> {{currency2}}</label>
                 </div>
                 <div class="col col-66">
-                  {{market2Data.bitcoin|number:4}}
+                  {{market2Data.bitcoin|number:0}}
                 </div>
               </div>
             </div>
@@ -118,7 +129,7 @@
                   <label for=""> Ask</label>
                 </div>
                 <div class="col col-66">
-                  {{ratioBuySell.ask|number:2}}
+                  {{ratioBuySell.ask|number:7}}
                 </div>
               </div>
               <div class="row">
@@ -126,7 +137,7 @@
                   <label for=""> Bid </label>
                 </div>
                 <div class="col col-66">
-                  {{ratioBuySell.bid|number:2}}
+                  {{ratioBuySell.bid|number:7}}
                 </div>
               </div>
             </div>
@@ -138,7 +149,7 @@
                   <label for=""> Ask </label>
                 </div>
                 <div class="col col-66">
-                  {{ratioSellBuy.ask|number:2}}
+                  {{ratioSellBuy.ask|number:7}}
                 </div>
               </div>
               <div class="row">
@@ -146,7 +157,7 @@
                   <label for=""> Bid </label>
                 </div>
                 <div class="col col-66">
-                  {{ratioSellBuy.bid|number:2}}
+                  {{ratioSellBuy.bid|number:7}}
                 </div>
               </div>
             </div>
