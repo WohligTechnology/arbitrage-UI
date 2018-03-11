@@ -11,6 +11,8 @@ angular.module('starter.controllers', [])
       $scope.currency1 = "Bitcoin";
       $scope.currency2 = "Ripple";
       $scope.market = "XRP/BTC";
+      $scope.initialRipple = 1771;
+
 
       function getCurrentAmount() {
         async.parallel({
@@ -39,7 +41,8 @@ angular.module('starter.controllers', [])
           $scope.market2Data.usd = parseFloat($scope.newHitbtc.data.BTC.cash);
 
           $scope.totalUsd = $scope.market1Data.usd + $scope.market2Data.usd;
-          $scope.totalBitcoin = $scope.market1Data.bitcoin + $scope.market2Data.bitcoin + 0.21;
+          $scope.totalBitcoin = _.floor($scope.market1Data.bitcoin + $scope.market2Data.bitcoin);
+          console.log($scope.totalBitcoin);
           $scope.totalValueUsd = $scope.totalUsd + ($scope.totalBitcoin * $scope.valueOfBitcoin);
           $scope.totalValueBitcoin = $scope.totalValueUsd / $scope.valueOfBitcoin;
         });
@@ -53,7 +56,6 @@ angular.module('starter.controllers', [])
       }
       getArbitrage();
       io.socket.on("RatioBuySell", function (data) {
-        console.log(data);
         $scope.ratioBuySell = data;
         $scope.$apply();
       });

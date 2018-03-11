@@ -15,17 +15,17 @@
               </label>
             </div>
             <div class="col col-66">
-              $ 3332
+              Ripple {{initialRipple}}
             </div>
           </div>
           <div class="row">
             <div class="col col-33">
               <label for="">
-                Value Usd
+                Current Value
               </label>
             </div>
             <div class="col col-66">
-              $ 3926
+              Ripple {{totalBitcoin}}
             </div>
           </div>
           <div class="row">
@@ -35,7 +35,7 @@
               </label>
             </div>
             <div class="col col-66">
-              {{(3926/3332-1)*100|number:2}}%
+              {{(totalBitcoin/initialRipple-1)*100|number:2}}%
             </div>
           </div>
 
