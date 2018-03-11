@@ -41,7 +41,11 @@ angular.module('apiService', [])
       },
       searchProcess: function (page, callback) {
         $http.post(adminurl + "Process/search", {
-          page: page
+          page: page,
+          filter: {
+            status: "ProcessCompleted"
+          }
+
         }).then(function (data) {
           callback(data.data.data);
         });
