@@ -15,7 +15,7 @@
               </label>
             </div>
             <div class="col col-66">
-              Ripple {{initialRipple}}
+              XRP {{initialRipple}} - BTC {{initialBitcoin}}
             </div>
           </div>
           <div class="row">
@@ -25,7 +25,7 @@
               </label>
             </div>
             <div class="col col-66">
-              Ripple {{totalBitcoin}}
+              XRP {{totalBitcoin}} - BTC {{totalUsd}}
             </div>
           </div>
           <div class="row">
@@ -35,7 +35,7 @@
               </label>
             </div>
             <div class="col col-66">
-              {{(totalBitcoin/initialRipple-1)*100|number:2}}%
+              XRP {{(totalBitcoin/initialRipple-1)*100|number:2}}% - BTC {{(totalUsd/initialBitcoin-1)*100|number:2}}%
             </div>
           </div>
 

@@ -12,6 +12,7 @@ angular.module('starter.controllers', [])
       $scope.currency2 = "Ripple";
       $scope.market = "XRP/BTC";
       $scope.initialRipple = 1771;
+      $scope.initialBitcoin = 0.197;
 
 
       function getCurrentAmount() {
