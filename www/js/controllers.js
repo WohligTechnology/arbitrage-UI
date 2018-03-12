@@ -13,7 +13,13 @@ angular.module('starter.controllers', [])
       $scope.market = "XRP/BTC";
       $scope.initialRipple = 1771;
       $scope.initialBitcoin = 0.197;
-      $scope.currentDate = moment().toDate();
+      $scope.initialDateMoment = moment("02-23-2018", "MM-DD-YYYY");
+      $scope.currentDateMoment = moment();
+      var days = moment().diff($scope.initialDateMoment, "days");
+      $scope.days = days;
+      var daysInYear = 365;
+      $scope.initialDate = $scope.initialDateMoment.toDate();
+      $scope.currentDate = $scope.currentDateMoment.toDate();
 
       function getCurrentAmount() {
         async.parallel({
@@ -43,9 +49,14 @@ angular.module('starter.controllers', [])
 
           $scope.totalUsd = $scope.market1Data.usd + $scope.market2Data.usd;
           $scope.totalBitcoin = _.floor($scope.market1Data.bitcoin + $scope.market2Data.bitcoin);
-          console.log($scope.totalBitcoin);
           $scope.totalValueUsd = $scope.totalUsd + ($scope.totalBitcoin * $scope.valueOfBitcoin);
           $scope.totalValueBitcoin = $scope.totalValueUsd / $scope.valueOfBitcoin;
+          $scope.rippleGrowth = ($scope.totalBitcoin / $scope.initialRipple - 1);
+
+          $scope.bitcoinGrowth = ($scope.totalUsd / $scope.initialBitcoin - 1);
+
+          $scope.annulizedRipple = $scope.rippleGrowth * daysInYear / days;
+          $scope.annulizedBitcoin = $scope.bitcoinGrowth * daysInYear / days;
         });
       }
       getCurrentAmount();
