@@ -13,7 +13,7 @@ angular.module('starter.controllers', [])
       $scope.market = "XRP/BTC";
       $scope.initialRipple = 1771;
       $scope.initialBitcoin = 0.197;
-
+      $scope.currentDate = moment().toDate();
 
       function getCurrentAmount() {
         async.parallel({
