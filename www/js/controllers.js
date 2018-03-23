@@ -48,7 +48,7 @@ angular.module('starter.controllers', [])
           $scope.market2Data.usd = parseFloat($scope.newHitbtc.data.BTC.cash);
 
           $scope.totalUsd = $scope.market1Data.usd + $scope.market2Data.usd;
-          $scope.totalBitcoin = _.floor($scope.market1Data.bitcoin + $scope.market2Data.bitcoin);
+          $scope.totalBitcoin = $scope.market1Data.bitcoin + $scope.market2Data.bitcoin;
           $scope.totalValueUsd = $scope.totalUsd + ($scope.totalBitcoin * $scope.valueOfBitcoin);
           $scope.totalValueBitcoin = $scope.totalValueUsd / $scope.valueOfBitcoin;
           $scope.rippleGrowth = ($scope.totalBitcoin / $scope.initialRipple - 1);
