@@ -1,11 +1,10 @@
-
 {
-  "name": "My Ionic App",
-  "short_name": "My Ionic App",
+  "name": "Arbitrage XRP vs BTC",
+  "short_name": "Arbitrage XRP vs BTC",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
-    "src": "icon.png",
+    "src": "img/ionic.png",
     "sizes": "512x512",
     "type": "image/png"
   }]
