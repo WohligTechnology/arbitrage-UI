@@ -9,8 +9,10 @@ angular.module('starter.controllers', [])
     function ($scope, $timeout, apiService) {
       $scope.valueOfBitcoin = 11300;
       $scope.currency1 = "Bitcoin";
-      $scope.currency2 = "Ripple";
-      $scope.market = "XRP/BTC";
+      $scope.currency2 = "Tron";
+      $scope.currencyShortName1 = "BTC";
+      $scope.currencyShortName2 = "TRX";
+      $scope.market = "TRX/BTC";
       $scope.initialRipple = 1771;
       $scope.initialBitcoin = 0.197;
       $scope.initialDateMoment = moment("02-23-2018", "MM-DD-YYYY");
@@ -36,7 +38,7 @@ angular.module('starter.controllers', [])
           });
 
           $scope.market1Data = {};
-          $scope.market1Data.bitcoin = parseFloat($scope.newBinance.data.XRP.available) + parseFloat($scope.newBinance.data.XRP.onOrder);
+          $scope.market1Data.bitcoin = parseFloat($scope.newBinance.data[$scope.currencyShortName2].available) + parseFloat($scope.newBinance.data[$scope.currencyShortName2].onOrder);
           $scope.market1Data.usd = parseFloat($scope.newBinance.data.BTC.available) + parseFloat($scope.newBinance.data.BTC.onOrder);
 
           $scope.newHitbtc = _.find($scope.newBalance, function (n) {
@@ -44,7 +46,7 @@ angular.module('starter.controllers', [])
           });
 
           $scope.market2Data = {};
-          $scope.market2Data.bitcoin = parseFloat($scope.newHitbtc.data.XRP.cash);
+          $scope.market2Data.bitcoin = parseFloat($scope.newHitbtc.data[$scope.currencyShortName2].cash);
           $scope.market2Data.usd = parseFloat($scope.newHitbtc.data.BTC.cash);
 
           $scope.totalUsd = $scope.market1Data.usd + $scope.market2Data.usd;
