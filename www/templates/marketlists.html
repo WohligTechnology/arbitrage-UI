@@ -26,7 +26,7 @@
                 <span class="small-title">Rate:</span> {{(process.ratio-1)*100|number:2}}%</h3>
             </div>
             <div class="col">
-              <h3>
+              <h3 ng-show="process.transaction1.status == 'Completed'  && process.transaction2.status == 'Completed'">
                 <span class="small-title">Profit:</span> XRP {{(process.ratio-1.002)*process.transaction1.amountBTC|number:4}}</h3>
             </div>
           </div>
