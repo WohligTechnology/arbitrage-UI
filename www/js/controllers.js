@@ -124,14 +124,14 @@ angular.module('starter.controllers', [])
 
 
     $scope.checkTransaction1 = function (transaction) {
-      if (transaction.status == "Pending") {
+      if (transaction.status == "Pending" || transaction.status == "Cancelled") {
         apiService.cancelTransaction1(transaction._id, function () {
           $scope.doRefresh();
         });
       }
     };
     $scope.checkTransaction2 = function (transaction) {
-      if (transaction.status == "Pending") {
+      if (transaction.status == "Pending" || transaction.status == "Cancelled") {
         apiService.cancelTransaction2(transaction._id, function () {
           $scope.doRefresh();
         });
