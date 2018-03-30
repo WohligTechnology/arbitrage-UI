@@ -49,7 +49,21 @@ angular.module('apiService', [])
         }).then(function (data) {
           callback(data.data.data);
         });
-      }
+      },
+      cancelTransaction1: function (id, callback) {
+        $http.post(adminurl + "Transaction/checkTransaction1", {
+          _id: id
+        }).then(function (data) {
+          callback(data.data.data);
+        });
+      },
+      cancelTransaction2: function (id, callback) {
+        $http.post(adminurl + "Transaction/checkTransaction2", {
+          _id: id
+        }).then(function (data) {
+          callback(data.data.data);
+        });
+      },
       // This is a demo Service for POST Method.
 
 
