@@ -36,7 +36,7 @@
                             'ion-clock button-positive':process.transaction1.status=='Pending',
                           'ion-checkmark-circled button-balanced':process.transaction1.status=='Completed',
                           'ion-close-circled button-assertive':process.transaction1.status=='Cancelled'
-                        }" class="button button-small button-block icon-right">Buy: Binance</a>
+                        }" class="button button-small button-block icon-right">Buy: Binance {{process.transaction1.rate}}</a>
 
             </div>
             <div class="col">
@@ -44,7 +44,7 @@
                         'ion-clock button-positive':process.transaction2.status=='Pending',
                       'ion-checkmark-circled button-balanced':process.transaction2.status=='Completed',
                       'ion-close-circled button-assertive':process.transaction2.status=='Cancelled'
-                    }" class="button button-small button-block icon-right ">Sell: Hibtc</a>
+                    }" class="button button-small button-block icon-right ">Sell: Hibtc {{process.transaction2.rate}}</a>
             </div>
 
 
@@ -55,14 +55,14 @@
                     'ion-clock button-positive':process.transaction2.status=='Pending',
                   'ion-checkmark-circled button-balanced':process.transaction2.status=='Completed',
                   'ion-close-circled button-assertive':process.transaction2.status=='Cancelled'
-                }" class="button button-small button-block icon-right ">Buy: Hibtc</a>
+                }" class="button button-small button-block icon-right ">Buy: Hibtc {{process.transaction2.rate}}</a>
             </div>
             <div class="col">
               <a ng-class="{
                     'ion-clock button-positive':process.transaction1.status=='Pending',
                   'ion-checkmark-circled button-balanced':process.transaction1.status=='Completed',
                   'ion-close-circled button-assertive':process.transaction1.status=='Cancelled'
-                }" class="button button-small button-block icon-right">Sell: Binance</a>
+                }" class="button button-small button-block icon-right">Sell: Binance {{process.transaction1.rate}}</a>
 
             </div>
 
