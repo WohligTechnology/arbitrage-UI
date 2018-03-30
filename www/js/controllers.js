@@ -84,7 +84,7 @@ angular.module('starter.controllers', [])
 
     })
 
-  .controller('MarketlistsCtrl', function ($scope, $stateParams, apiService) {
+  .controller('MarketlistsCtrl', function ($scope, $stateParams, apiService, $state) {
 
     $scope.bitcoinPrice = 11300;
     $scope.initial = function () {
@@ -114,6 +114,12 @@ angular.module('starter.controllers', [])
 
       });
 
+    };
+    $scope.checkTransaction1 = function () {};
+    $scope.checkTransaction2 = function (transaction) {
+      apiService.cancelTransaction2(transaction._id, function () {
+        $state.reload();
+      });
     };
     $scope.doRefresh = function () {
       $scope.initial();
