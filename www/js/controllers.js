@@ -129,7 +129,6 @@ angular.module('starter.controllers', [])
           $scope.doRefresh();
         });
       }
-
     };
     $scope.checkTransaction2 = function (transaction) {
       if (transaction.status == "Pending") {
