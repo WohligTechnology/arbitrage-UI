@@ -115,19 +115,22 @@ angular.module('starter.controllers', [])
       });
 
     };
-    $scope.checkTransaction1 = function (transaction) {
-      apiService.cancelTransaction1(transaction._id, function () {
-        $state.reload();
-      });
-    };
-    $scope.checkTransaction2 = function (transaction) {
-      apiService.cancelTransaction2(transaction._id, function () {
-        $state.reload();
-      });
-    };
+
     $scope.doRefresh = function () {
       $scope.initial();
       $scope.loadMoreData();
       $scope.$broadcast('scroll.refreshComplete');
+    };
+
+
+    $scope.checkTransaction1 = function (transaction) {
+      apiService.cancelTransaction1(transaction._id, function () {
+        $scope.doRefresh();
+      });
+    };
+    $scope.checkTransaction2 = function (transaction) {
+      apiService.cancelTransaction2(transaction._id, function () {
+        $scope.doRefresh();
+      });
     };
   });
