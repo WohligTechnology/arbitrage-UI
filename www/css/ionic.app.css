@@ -9952,7 +9952,8 @@ p.date {
   padding: 0px 3px; }
 
 .list-transactions .button.button-block {
-  margin: 4px 0px; }
+  margin: 4px 0px;
+  font-weight: bold; }
 
 .list-transactions .item {
   padding: 5px; }
