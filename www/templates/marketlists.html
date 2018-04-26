@@ -36,7 +36,11 @@
                             'ion-clock button-positive':process.transaction1.status=='Pending',
                           'ion-checkmark-circled button-balanced':process.transaction1.status=='Completed',
                           'ion-close-circled button-assertive':process.transaction1.status=='Cancelled'
-                        }" class="button button-small button-block icon-right">Buy: Binance {{process.transaction1.rate}} || QTY: {{process.transaction1.response.executedQty|number:0}}</a>
+                        }" class="button button-small button-block icon-right">Buy: Binance</a>
+              <div class="show-other">
+                <span class="show-rate">Rate: {{process.transaction1.rate}} </span>
+                <span class="show-quantity">Qty: {{process.transaction1.response.executedQty|number:0}}</span>
+              </div>
 
             </div>
             <div class="col">
@@ -44,7 +48,11 @@
                         'ion-clock button-positive':process.transaction2.status=='Pending',
                       'ion-checkmark-circled button-balanced':process.transaction2.status=='Completed',
                       'ion-close-circled button-assertive':process.transaction2.status=='Cancelled'
-                    }" class="button button-small button-block icon-right ">Sell: Hibtc {{process.transaction2.rate}} || QTY: {{process.transaction2.response.execQuantity*1000|number:0}}</a>
+                    }" class="button button-small button-block icon-right ">Sell: Hibtc</a>
+              <div class="show-other">
+                <span class="show-rate">Rate: {{process.transaction2.rate}} </span>
+                <span class="show-quantity">Qty: {{process.transaction2.response.execQuantity|number:0}}</span>
+              </div>
             </div>
 
 
@@ -55,13 +63,21 @@
                     'ion-clock button-positive':process.transaction2.status=='Pending',
                   'ion-checkmark-circled button-balanced':process.transaction2.status=='Completed',
                   'ion-close-circled button-assertive':process.transaction2.status=='Cancelled'
-                }" class="button button-small button-block icon-right ">Buy: Hibtc {{process.transaction2.rate}} || QTY: {{process.transaction2.response.execQuantity*1000|number:0}}</a>
+                }" class="button button-small button-block icon-right ">Buy: Hibtc </a>
+
+              <div class="show-other">
+                <span class="show-rate">Rate: {{process.transaction2.rate}} </span>
+                <span class="show-quantity">Qty: {{process.transaction2.response.execQuantity|number:0}}</span>
+              </div>
             </div>
             <div class="col">
               <a ng-click="checkTransaction1(process.transaction1)" ng-class=" { 'ion-clock button-positive':process.transaction1.status=='Pending'
                 , 'ion-checkmark-circled button-balanced':process.transaction1.status=='Completed' ,
-                'ion-close-circled button-assertive':process.transaction1.status=='Cancelled' } " class="button button-small button-block icon-right ">Sell: Binance {{process.transaction1.rate}} || QTY: {{process.transaction1.response.executedQty|number:0}}</a>
-
+                'ion-close-circled button-assertive':process.transaction1.status=='Cancelled' } " class="button button-small button-block icon-right ">Sell: Binance </a>
+              <div class="show-other">
+                <span class="show-rate">Rate: {{process.transaction1.rate}} </span>
+                <span class="show-quantity">Qty: {{process.transaction1.response.executedQty|number:0}}</span>
+              </div>
             </div>
 
           </div>
