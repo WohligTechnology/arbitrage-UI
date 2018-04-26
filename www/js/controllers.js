@@ -10,6 +10,7 @@ angular.module('starter.controllers', [])
       $scope.valueOfBitcoin = 11300;
       $scope.currency1 = "Bitcoin";
       $scope.currency2 = "Ripple";
+
       $scope.market = "XRP/BTC";
       $scope.initialRipple = 1771;
       $scope.initialBitcoin = 0.197;
@@ -83,7 +84,7 @@ angular.module('starter.controllers', [])
     })
 
   .controller('MarketlistsCtrl', function ($scope, $stateParams, apiService) {
-
+    $scope.currencyShortName2 = "XRP";
     $scope.bitcoinPrice = 11300;
     $scope.initial = function () {
       $scope.pageNo = 0;

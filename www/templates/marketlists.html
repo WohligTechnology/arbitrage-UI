@@ -27,42 +27,40 @@
             </div>
             <div class="col">
               <h3 ng-show="process.transaction1.status == 'Completed'  && process.transaction2.status == 'Completed'">
-                <span class="small-title">Profit:</span> XRP {{(process.ratio-1.002)*process.transaction1.amountBTC|number:4}}</h3>
+                <span class="small-title">Profit:</span> {{currencyShortName2}} {{(process.ratio-1.002)*process.transaction1.amountBTC|number:4}}</h3>
             </div>
           </div>
           <div class="row" ng-if="process.processType=='BuySell'">
             <div class="col">
-              <a ng-class="{
+              <a ng-click="checkTransaction1(process.transaction1)" ng-class="{
                             'ion-clock button-positive':process.transaction1.status=='Pending',
                           'ion-checkmark-circled button-balanced':process.transaction1.status=='Completed',
                           'ion-close-circled button-assertive':process.transaction1.status=='Cancelled'
-                        }" class="button button-small button-block icon-right">Buy: Binance</a>
+                        }" class="button button-small button-block icon-right">Buy: Binance {{process.transaction1.rate}} || QTY: {{process.transaction1.response.executedQty|number:0}}</a>
 
             </div>
             <div class="col">
-              <a ng-class="{
+              <a ng-click="checkTransaction2(process.transaction2)" ng-class="{
                         'ion-clock button-positive':process.transaction2.status=='Pending',
                       'ion-checkmark-circled button-balanced':process.transaction2.status=='Completed',
                       'ion-close-circled button-assertive':process.transaction2.status=='Cancelled'
-                    }" class="button button-small button-block icon-right ">Sell: Hibtc</a>
+                    }" class="button button-small button-block icon-right ">Sell: Hibtc {{process.transaction2.rate}} || QTY: {{process.transaction2.response.execQuantity*1000|number:0}}</a>
             </div>
 
 
           </div>
           <div class="row" ng-if="process.processType=='SellBuy'">
             <div class="col">
-              <a ng-class="{
+              <a ng-click="checkTransaction2(process.transaction2)" ng-class="{
                     'ion-clock button-positive':process.transaction2.status=='Pending',
                   'ion-checkmark-circled button-balanced':process.transaction2.status=='Completed',
                   'ion-close-circled button-assertive':process.transaction2.status=='Cancelled'
-                }" class="button button-small button-block icon-right ">Buy: Hibtc</a>
+                }" class="button button-small button-block icon-right ">Buy: Hibtc {{process.transaction2.rate}} || QTY: {{process.transaction2.response.execQuantity*1000|number:0}}</a>
             </div>
             <div class="col">
-              <a ng-class="{
-                    'ion-clock button-positive':process.transaction1.status=='Pending',
-                  'ion-checkmark-circled button-balanced':process.transaction1.status=='Completed',
-                  'ion-close-circled button-assertive':process.transaction1.status=='Cancelled'
-                }" class="button button-small button-block icon-right">Sell: Binance</a>
+              <a ng-click="checkTransaction1(process.transaction1)" ng-class=" { 'ion-clock button-positive':process.transaction1.status=='Pending'
+                , 'ion-checkmark-circled button-balanced':process.transaction1.status=='Completed' ,
+                'ion-close-circled button-assertive':process.transaction1.status=='Cancelled' } " class="button button-small button-block icon-right ">Sell: Binance {{process.transaction1.rate}} || QTY: {{process.transaction1.response.executedQty|number:0}}</a>
 
             </div>
 
@@ -70,7 +68,7 @@
         </div>
       </li>
 
-      <ion-infinite-scroll ng-if="moreDataCanBeLoaded()" icon="ion-loading-c" on-infinite="loadMoreData()">
+      <ion-infinite-scroll ng-if="moreDataCanBeLoaded() " icon="ion-loading-c " on-infinite="loadMoreData() ">
       </ion-infinite-scroll>
     </ul>
   </ion-content>
