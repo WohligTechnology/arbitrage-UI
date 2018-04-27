@@ -64,6 +64,12 @@ angular.module('apiService', [])
           callback(data.data.data);
         });
       },
+      getDataPerDay: function (callback) {
+        var adminurl = "http://localhost:1337/api/";
+        $http.post(adminurl + "Balance/getDataPerDay").then(function (data) {
+          callback(data.data.data);
+        });
+      },
       // This is a demo Service for POST Method.
 
 

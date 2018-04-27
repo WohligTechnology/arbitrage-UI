@@ -84,6 +84,9 @@ angular.module('starter.controllers', [])
 
     })
 
+
+
+
   .controller('MarketlistsCtrl', function ($scope, $stateParams, apiService, $state) {
 
     $scope.bitcoinPrice = 11300;
@@ -137,4 +140,59 @@ angular.module('starter.controllers', [])
         });
       }
     };
+  })
+
+  .controller('GrowthCtrl', function ($scope, $ionicModal, $timeout, apiService) {
+
+    function generateGraph(data) {
+      console.log(data);
+      $scope.labels = [];
+      var script1Arr = [];
+      var script2Arr = [];
+      _.each(data, function (n) {
+        $scope.labels.push(moment(n.date).format("D MMM"));
+        script1Arr.push(parseFloat(n.market1.data.TRX.available) + parseFloat(n.market2.data.TRX.cash));
+        script2Arr.push(parseFloat(n.market1.data.BTC.available) + parseFloat(n.market2.data.BTC.cash));
+      });
+      console.log(script1Arr);
+
+      $scope.series = ['TRX', 'BTC'];
+      $scope.data = [
+        script1Arr,
+        script2Arr
+      ];
+
+      $scope.onClick = function (points, evt) {
+        console.log(points, evt);
+      };
+
+
+
+      $scope.datasetOverride = [{
+        yAxisID: 'y-axis-1'
+      }, {
+        yAxisID: 'y-axis-2'
+      }];
+      $scope.options = {
+        scales: {
+          yAxes: [{
+              id: 'y-axis-1',
+              type: 'linear',
+              display: true,
+              position: 'left'
+            },
+            {
+              id: 'y-axis-2',
+              type: 'linear',
+              display: true,
+              position: 'right'
+            }
+          ]
+        }
+      };
+
+    }
+
+    apiService.getDataPerDay(generateGraph);
+
   });
