@@ -150,24 +150,26 @@ angular.module('starter.controllers', [])
       var script2Arr = [];
 
       _.each(data, function (n) {
-        $scope.labels.push(moment(n.date).format("H:mm, D MMM"));
+        if (moment(n.date).isAfter("2018-04-25T12:18:54.539Z")) {
+          $scope.labels.push(moment(n.date).format("H:mm, D MMM"));
 
-        var range = 5;
+          var range = 1;
 
-        var script1Val = parseFloat(n.market1.data.TRX.available) + parseFloat(n.market2.data.TRX.cash);
-        var lastValue1 = _.last(script1Arr);
-        if (script1Val < lastValue1 * (1 - range / 100) || script1Val > lastValue1 * (1 + range / 100)) {
-          script1Arr.push(lastValue1);
-        } else {
-          script1Arr.push(script1Val);
-        }
+          var script1Val = parseFloat(n.market1.data.TRX.available) + parseFloat(n.market2.data.TRX.cash);
+          var lastValue1 = _.last(script1Arr);
+          if (script1Val < lastValue1 * (1 - range / 100) || script1Val > lastValue1 * (1 + range / 100)) {
+            script1Arr.push(lastValue1);
+          } else {
+            script1Arr.push(script1Val);
+          }
 
-        var lastValue2 = _.last(script2Arr);
-        var script2Val = parseFloat(n.market1.data.BTC.available) + parseFloat(n.market2.data.BTC.cash);
-        if (script2Val < lastValue2 * (1 - range / 100) || script2Val > lastValue2 * (1 + range / 100)) {
-          script2Arr.push(lastValue2);
-        } else {
-          script2Arr.push(script2Val);
+          var lastValue2 = _.last(script2Arr);
+          var script2Val = parseFloat(n.market1.data.BTC.available) + parseFloat(n.market2.data.BTC.cash);
+          if (script2Val < lastValue2 * (1 - range / 100) || script2Val > lastValue2 * (1 + range / 100)) {
+            script2Arr.push(lastValue2);
+          } else {
+            script2Arr.push(script2Val);
+          }
         }
       });
 
