@@ -71,7 +71,5 @@ angular.module('apiService', [])
         });
       },
       // This is a demo Service for POST Method.
-
-
     };
   });

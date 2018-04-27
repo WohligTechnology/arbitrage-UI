@@ -150,7 +150,7 @@ angular.module('starter.controllers', [])
       var script1Arr = [];
       var script2Arr = [];
       _.each(data, function (n) {
-        $scope.labels.push(moment(n.date).format("D MMM"));
+        $scope.labels.push(moment(n.date).format("H:mm, D MMM"));
         script1Arr.push(parseFloat(n.market1.data.TRX.available) + parseFloat(n.market2.data.TRX.cash));
         script2Arr.push(parseFloat(n.market1.data.BTC.available) + parseFloat(n.market2.data.BTC.cash));
       });
@@ -163,7 +163,7 @@ angular.module('starter.controllers', [])
       ];
 
       $scope.onClick = function (points, evt) {
-        console.log(points, evt);
+        // console.log(points, evt);
       };
 
 
