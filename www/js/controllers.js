@@ -145,16 +145,30 @@ angular.module('starter.controllers', [])
   .controller('GrowthCtrl', function ($scope, $ionicModal, $timeout, apiService) {
 
     function generateGraph(data) {
-      console.log(data);
       $scope.labels = [];
       var script1Arr = [];
       var script2Arr = [];
+
       _.each(data, function (n) {
         $scope.labels.push(moment(n.date).format("H:mm, D MMM"));
-        script1Arr.push(parseFloat(n.market1.data.TRX.available) + parseFloat(n.market2.data.TRX.cash));
-        script2Arr.push(parseFloat(n.market1.data.BTC.available) + parseFloat(n.market2.data.BTC.cash));
+
+
+        var script1Val = parseFloat(n.market1.data.TRX.available) + parseFloat(n.market2.data.TRX.cash);
+        var lastValue1 = _.last(script1Arr);
+        if (script1Val < lastValue1 * 0.95 || script1Val > lastValue1 * 1.05) {
+          script1Arr.push(lastValue1);
+        } else {
+          script1Arr.push(script1Val);
+        }
+
+        var lastValue2 = _.last(script2Arr);
+        var script2Val = parseFloat(n.market1.data.BTC.available) + parseFloat(n.market2.data.BTC.cash);
+        if (script2Val < lastValue2 * 0.95 || script2Val > lastValue2 * 1.05) {
+          script2Arr.push(lastValue2);
+        } else {
+          script2Arr.push(script2Val);
+        }
       });
-      console.log(script1Arr);
 
       $scope.series = ['TRX', 'BTC'];
       $scope.data = [
