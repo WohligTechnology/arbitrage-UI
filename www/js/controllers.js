@@ -166,19 +166,30 @@ angular.module('starter.controllers', [])
         script2Arr
       ];
 
-      $scope.onClick = function (points, evt) {
-        // console.log(points, evt);
-      };
-
+      var color1 = "#488aff";
+      var color2 = "#32db64";
 
 
       $scope.datasetOverride = [{
-        yAxisID: 'y-axis-1'
-      }, {
-        yAxisID: 'y-axis-2'
-      }];
+          yAxisID: 'y-axis-1',
+          borderColor: color1,
+          backgroundColor: color1 + "10",
+          pointBackgroundColor: color1,
+          pointHoverBackgroundColor: color1,
+
+        },
+        {
+          yAxisID: 'y-axis-2',
+          borderColor: color2,
+          backgroundColor: color2 + "10",
+          pointBackgroundColor: color2,
+          pointHoverBackgroundColor: color2
+        }
+      ];
       $scope.options = {
         events: ['click', "touch"],
+        maintainAspectRatio: true,
+        responsiveAnimationDuration: 1000,
         scales: {
           yAxes: [{
               id: 'y-axis-1',
