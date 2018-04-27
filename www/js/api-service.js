@@ -65,7 +65,7 @@ angular.module('apiService', [])
         });
       },
       getDataPerDay: function (callback) {
-        var adminurl = "http://localhost:1337/api/";
+        // var adminurl = "http://localhost:1337/api/";
         $http.post(adminurl + "Balance/getDataPerDay").then(function (data) {
           callback(data.data.data);
         });
