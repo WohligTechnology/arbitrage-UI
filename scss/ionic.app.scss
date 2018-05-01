@@ -130,3 +130,15 @@ p.date {
     padding: 5px;
   }
 }
+
+.loading {
+  text-align: center;
+  margin: 22%;
+}
+
+.spinner svg {
+  width: 50px;
+  height: 50px;
+  stroke: #387ef5;
+  fill: #387ef5;
+}

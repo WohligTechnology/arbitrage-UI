@@ -1,6 +1,11 @@
 <ion-view view-title="Growth">
   <ion-content>
     <h3></h3>
+
+    <div class="loading" ng-hide="options">
+      <ion-spinner icon="lines"></ion-spinner>
+    </div>
+
     <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-options="options"
       chart-dataset-override="datasetOverride" chart-click="onClick">
     </canvas </ion-content>
