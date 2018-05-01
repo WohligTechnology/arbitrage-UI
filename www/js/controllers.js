@@ -11,8 +11,8 @@ angular.module('starter.controllers', [])
       $scope.currency1 = "Bitcoin";
       $scope.currency2 = "Tron";
       $scope.currencyShortName1 = "BTC";
-      $scope.currencyShortName2 = "TRX";
-      $scope.market = "TRX/BTC";
+      $scope.currencyShortName2 = "STORM";
+      $scope.market = "STORM/BTC";
       $scope.initialRipple = 80000;
       $scope.initialBitcoin = 0.4522775;
       $scope.initialDateMoment = moment("03-29-2018", "MM-DD-YYYY");
@@ -153,14 +153,14 @@ angular.module('starter.controllers', [])
       _.each(data, function (n) {
         // if (moment(n.date).isAfter("2018-04-25T12:18:54.539Z")) {
         $scope.labels.push(moment(n.date).format("H:mm, D MMM"));
-        var script1Val = parseFloat(n.market1.data.TRX.available) + parseFloat(n.market2.data.TRX.cash);
+        var script1Val = parseFloat(n.market1.data.STORM.available) + parseFloat(n.market2.data.STORM.cash);
         script1Arr.push(script1Val);
         var script2Val = parseFloat(n.market1.data.BTC.available) + parseFloat(n.market2.data.BTC.cash);
         script2Arr.push(script2Val);
         // }
       });
 
-      $scope.series = ['TRX', 'BTC'];
+      $scope.series = ['STORM', 'BTC'];
       $scope.data = [
         script1Arr,
         script2Arr
