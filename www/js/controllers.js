@@ -151,13 +151,13 @@ angular.module('starter.controllers', [])
       var script2Arr = [];
 
       _.each(data, function (n) {
-        if (moment(n.date).isAfter("2018-04-25T12:18:54.539Z")) {
-          $scope.labels.push(moment(n.date).format("H:mm, D MMM"));
-          var script1Val = parseFloat(n.market1.data.TRX.available) + parseFloat(n.market2.data.TRX.cash);
-          script1Arr.push(script1Val);
-          var script2Val = parseFloat(n.market1.data.BTC.available) + parseFloat(n.market2.data.BTC.cash);
-          script2Arr.push(script2Val);
-        }
+        // if (moment(n.date).isAfter("2018-04-25T12:18:54.539Z")) {
+        $scope.labels.push(moment(n.date).format("H:mm, D MMM"));
+        var script1Val = parseFloat(n.market1.data.TRX.available) + parseFloat(n.market2.data.TRX.cash);
+        script1Arr.push(script1Val);
+        var script2Val = parseFloat(n.market1.data.BTC.available) + parseFloat(n.market2.data.BTC.cash);
+        script2Arr.push(script2Val);
+        // }
       });
 
       $scope.series = ['TRX', 'BTC'];
