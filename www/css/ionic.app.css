@@ -9927,9 +9927,10 @@ span.small-title {
   color: #888; }
 
 p.date {
-  color: #888;
-  font-size: 0.8em;
-  margin: 0px; }
+  color: #6d6c6c;
+  margin: 0px;
+  font-weight: bold;
+  font-size: 11px; }
   p.date .right {
     float: right; }
 
@@ -9951,10 +9952,24 @@ p.date {
   padding: 0px 3px; }
 
 .list-transactions .button.button-block {
-  margin: 4px 0px; }
+  margin: 4px 0px;
+  font-weight: bold; }
 
 .list-transactions .item {
   padding: 5px; }
+
+.show-other {
+  font-size: 11px;
+  padding: 0;
+  height: 10px;
+  margin-top: -6px;
+  margin-bottom: 6px;
+  font-weight: bold;
+  margin-left: 6px;
+  margin-right: 6px; }
+
+span.show-quantity {
+  float: right; }
 
 .loading {
   text-align: center;
