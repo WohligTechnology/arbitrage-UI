@@ -9,13 +9,13 @@ angular.module('starter.controllers', [])
     function ($scope, $timeout, apiService) {
       $scope.valueOfBitcoin = 11300;
       $scope.currency1 = "Bitcoin";
-      $scope.currency2 = "Tron";
+      $scope.currency2 = "Storm";
       $scope.currencyShortName1 = "BTC";
       $scope.currencyShortName2 = "STORM";
       $scope.market = "STORM/BTC";
-      $scope.initialRipple = 80000;
-      $scope.initialBitcoin = 0.4522775;
-      $scope.initialDateMoment = moment("03-29-2018", "MM-DD-YYYY");
+      $scope.initialRipple = 20789.61;
+      $scope.initialBitcoin = 0.15798065;
+      $scope.initialDateMoment = moment("05-02-2018", "MM-DD-YYYY");
       $scope.currentDateMoment = moment();
       var days = moment().diff($scope.initialDateMoment, "days");
       $scope.days = days;
