@@ -147,8 +147,8 @@ angular.module('starter.controllers', [])
     function generateGraph(data) {
       console.log(data.length);
       $scope.labels = [];
-      var script1Arr = [];
-      var script2Arr = [];
+      var script1Arr = [80000];
+      var script2Arr = [0.4522775];
 
       _.each(data, function (n) {
         // if (moment(n.date).isAfter("2018-04-25T12:18:54.539Z")) {
