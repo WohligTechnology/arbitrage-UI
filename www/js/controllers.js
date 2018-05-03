@@ -15,7 +15,7 @@ angular.module('starter.controllers', [])
       $scope.market = "STORM/BTC";
       $scope.initialRipple = 20789.61;
       $scope.initialBitcoin = 0.15798065;
-      $scope.initialDateMoment = moment("05-02-2018", "MM-DD-YYYY");
+      $scope.initialDateMoment = moment("05-03-2018", "MM-DD-YYYY");
       $scope.currentDateMoment = moment();
       var days = moment().diff($scope.initialDateMoment, "days");
       $scope.days = days;
