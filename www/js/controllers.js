@@ -5,6 +5,10 @@ angular.module('starter.controllers', [])
 
   })
 
+  .controller('HomeCtrl', function ($scope, $ionicModal, $timeout,$state,$rootScope) {
+  
+  })
+
   .controller('MarketStatusCtrl',
     function ($scope, $timeout, apiService) {
       $scope.valueOfBitcoin = 11300;

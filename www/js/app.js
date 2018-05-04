@@ -41,6 +41,16 @@ angular.module('starter', ['ionic', 'starter.controllers', "apiService", 'chart.
         }
       })
 
+      .state('app.home', {
+        url: '/home',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/home.html',
+            controller: 'HomeCtrl'
+          }
+        }
+      })
+
       .state('app.marketstatus', {
         url: '/marketstatus',
         views: {
@@ -68,10 +78,7 @@ angular.module('starter', ['ionic', 'starter.controllers', "apiService", 'chart.
             controller: 'GrowthCtrl'
           }
         }
-      })
-
-
-    ;
+      });
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/marketstatus');
+    $urlRouterProvider.otherwise('/app/home');
   });

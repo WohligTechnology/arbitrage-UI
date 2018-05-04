@@ -159,3 +159,15 @@ span.show-quantity {
   stroke: #387ef5;
   fill: #387ef5;
 }
+.custom_card{
+  border: solid 1px #387ef5;
+  color: #387ef5;
+}
+.item:hover{
+  background-color: #387ef5 !important;
+  color: white;
+}
+.footer_style{
+  font-size: 10px !important;
+  text-align: right !important;
+}
