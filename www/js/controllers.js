@@ -3,23 +3,28 @@ angular.module('starter.controllers', [])
   .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
 
   })
-  .controller('HomeCtrl', function ($scope, $ionicModal, $timeout, $state, $rootScope) {
+  .controller('HomeCtrl', function ($scope, $ionicModal, $timeout, $state, apiService) {
     $scope.changeScript = function (script) {
-      apiService.setScript(script);
+      apiService.setScript(script, function () {
+        $state.go("app.marketstatus");
+      });
+
     };
-    $scope.currentScript = apiService.getScript();
+    // $scope.currentScript = apiService.getScript();
   })
   .controller('MarketStatusCtrl',
     function ($scope, $timeout, apiService) {
-      $scope.valueOfBitcoin = 11300;
-      $scope.currency1 = "Bitcoin";
-      $scope.currency2 = "Storm";
-      $scope.currencyShortName1 = "BTC";
-      $scope.currencyShortName2 = "STORM";
-      $scope.market = "STORM/BTC";
-      $scope.initialRipple = 20789.61;
-      $scope.initialBitcoin = 0.15798065;
-      $scope.initialDateMoment = moment("05-03-2018", "MM-DD-YYYY");
+
+      $scope.currentScript = apiService.getScript();
+      $scope.currency1 = $scope.currentScript.currency1;
+      $scope.currency2 = $scope.currentScript.currency2;
+      $scope.currencyShortName2 = $scope.currentScript.currencyShortName1;
+      $scope.currencyShortName1 = $scope.currentScript.currencyShortName2;
+      $scope.market = $scope.currencyShortName2 + "/" + $scope.currencyShortName1;
+
+      $scope.initialRipple = $scope.currentScript.initialCurrency1;
+      $scope.initialBitcoin = $scope.currentScript.initialCurrency2;
+      $scope.initialDateMoment = moment($scope.currentScript.initialDate, "MM-DD-YYYY");
       $scope.currentDateMoment = moment();
       var days = moment().diff($scope.initialDateMoment, "days");
       $scope.days = days;
@@ -32,35 +37,26 @@ angular.module('starter.controllers', [])
           balance: apiService.balance,
           marketsData: apiService.getLastMarketData
         }, function (err, data) {
-
-
           $scope.oldBalance = data.balance.old;
           $scope.newBalance = data.balance.new;
-
           $scope.newBinance = _.find($scope.newBalance, function (n) {
             return n.market == "Binance";
           });
-
           $scope.market1Data = {};
           $scope.market1Data.bitcoin = parseFloat($scope.newBinance.data[$scope.currencyShortName2].available) + parseFloat($scope.newBinance.data[$scope.currencyShortName2].onOrder);
           $scope.market1Data.usd = parseFloat($scope.newBinance.data.BTC.available) + parseFloat($scope.newBinance.data.BTC.onOrder);
-
           $scope.newHitbtc = _.find($scope.newBalance, function (n) {
             return n.market == "Hitbtc";
           });
-
           $scope.market2Data = {};
           $scope.market2Data.bitcoin = parseFloat($scope.newHitbtc.data[$scope.currencyShortName2].cash);
           $scope.market2Data.usd = parseFloat($scope.newHitbtc.data.BTC.cash);
-
           $scope.totalUsd = $scope.market1Data.usd + $scope.market2Data.usd;
           $scope.totalBitcoin = $scope.market1Data.bitcoin + $scope.market2Data.bitcoin;
           $scope.totalValueUsd = $scope.totalUsd + ($scope.totalBitcoin * $scope.valueOfBitcoin);
           $scope.totalValueBitcoin = $scope.totalValueUsd / $scope.valueOfBitcoin;
           $scope.rippleGrowth = ($scope.totalBitcoin / $scope.initialRipple - 1);
-
           $scope.bitcoinGrowth = ($scope.totalUsd / $scope.initialBitcoin - 1);
-
           $scope.annulizedRipple = $scope.rippleGrowth * daysInYear / days;
           $scope.annulizedBitcoin = $scope.bitcoinGrowth * daysInYear / days;
         });

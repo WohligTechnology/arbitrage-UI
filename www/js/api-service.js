@@ -2,25 +2,47 @@ angular.module('apiService', [])
   .factory('apiService', function ($http, $q, $timeout, $state) {
     var scripts = {
       "TRX": {
-        script: "TRX",
+        currencyShortName1: "TRX",
+        currencyShortName2: "BTC",
         url: "http://trx.wohlig.com",
+        currency1: "Tron",
+        currency2: "Bitcoin",
+        initialCurrency1: 80000,
+        initialCurrency2: 0.4522775,
+        initialDate: "03-29-2018"
       },
       "XRP": {
-        script: "XRP",
+        currencyShortName1: "XRP",
+        currencyShortName2: "BTC",
         url: "http://vivek.wohlig.com",
+        currency1: "Ripple",
+        currency2: "Bitcoin",
+        initialCurrency1: 1771,
+        initialCurrency2: 0.197,
+        initialDate: "02-23-2018"
       },
       "STORM": {
-        script: "TRX",
-        url: "http://strom.wohlig.com",
+        currencyShortName1: "STORM",
+        currencyShortName2: "BTC",
+        url: "http://storm.wohlig.com",
+        currency1: "Strom",
+        currency2: "Bitcoin",
+        initialCurrency1: 20789.6100,
+        initialCurrency2: 0.15798065,
+        initialDate: "05-03-2018"
       }
     };
     return {
-      setScript: function (script) {
+      setScript: function (script, callback) {
         $.jStorage.set("script", scripts[script]);
+        $timeout(function () {
+          callback();
+        }, 100);
       },
       getScript: function () {
         var scriptDet = $.jStorage.get("script");
         if (scriptDet) {
+          adminurl = scriptDet.url + "/api/";
           return scriptDet;
         } else {
           $state.go("app.home");
