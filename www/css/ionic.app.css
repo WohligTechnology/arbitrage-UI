@@ -10023,4 +10023,12 @@ span.show-quantity {
 .bar button.button-clear.icon-left:before,
 .bar button.button-clear.icon-right:before {
   font-size: 16px;
-  padding-right: 8px; }
+  padding-right: 4px; }
+
+.bar-positive .button.button-clear {
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400; }
