@@ -7,6 +7,7 @@ angular.module('starter.controllers', [])
     $scope.changeScript = function (script) {
       apiService.setScript(script);
     };
+    $scope.currentScript = apiService.getScript();
   })
   .controller('MarketStatusCtrl',
     function ($scope, $timeout, apiService) {
