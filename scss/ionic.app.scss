@@ -196,3 +196,15 @@ span.show-quantity {
     color: white;
   }
 }
+
+.bar .button.button-clear .icon:before,
+.bar .button.button-clear.icon:before,
+.bar .button.button-clear.icon-left:before,
+.bar .button.button-clear.icon-right:before,
+.bar button.button-clear .icon:before,
+.bar button.button-clear.icon:before,
+.bar button.button-clear.icon-left:before,
+.bar button.button-clear.icon-right:before {
+  font-size: 16px;
+  padding-right: 8px;
+}

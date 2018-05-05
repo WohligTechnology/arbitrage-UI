@@ -1,4 +1,13 @@
-<ion-view view-title="Market ({{market}})">
+<ion-view>
+  <ion-header-bar class="bar-positive">
+    <div class="buttons">
+      <button class="button icon-left ion-chevron-left button-clear" ui-sref="app.home">Home</button>
+    </div>
+    <h1 class="title">Status ({{market}})</h1>
+    <div class="buttons">
+      <button class="button" ui-sref="app.marketlists">Transactions</button>
+    </div>
+  </ion-header-bar>
   <ion-content>
     <div class="list card list-markets">
       <div class="item">

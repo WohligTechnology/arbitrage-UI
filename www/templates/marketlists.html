@@ -1,4 +1,13 @@
 <ion-view view-title="Transaction List">
+  <ion-header-bar class="bar-positive">
+    <div class="buttons">
+      <button class="button icon-left ion-chevron-left button-clear" ui-sref="app.home">Home</button>
+    </div>
+    <h1 class="title">Transaction ({{market}})</h1>
+    <div class="buttons">
+      <button class="button" ui-sref="app.marketstatus">Status</button>
+    </div>
+  </ion-header-bar>
   <ion-content>
     <ul class="list list-transactions">
       <ion-refresher on-refresh="doRefresh()">

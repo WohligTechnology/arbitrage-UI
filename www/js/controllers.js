@@ -1,4 +1,5 @@
 var socketObj = {};
+var socket;
 angular.module('starter.controllers', [])
 
   .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
@@ -19,7 +20,8 @@ angular.module('starter.controllers', [])
 
       $scope.currentScript = apiService.getScript();
       io.sails.url = $scope.currentScript.url;
-      io.sails.connect();
+
+      socket = io.sails.connect();
 
       $scope.currency1 = $scope.currentScript.currency1;
       $scope.currency2 = $scope.currentScript.currency2;
@@ -74,27 +76,28 @@ angular.module('starter.controllers', [])
         });
       }
       getArbitrage();
-      io.socket.on('connect', function () {
-        io.socket.off("RatioBuySell", socketObj.ratioBuySell);
+      socket.on('connect', function () {
+        console.log("Lo");
+        socket.off("RatioBuySell", socketObj.ratioBuySell);
         socketObj.ratioBuySell = function (data) {
           $scope.ratioBuySell = data;
           $scope.$apply();
         };
-        io.socket.on("RatioBuySell", socketObj.ratioBuySell);
+        socket.on("RatioBuySell", socketObj.ratioBuySell);
 
-        io.socket.off("RatioSellBuy", socketObj.ratioSellBuy);
+        socket.off("RatioSellBuy", socketObj.ratioSellBuy);
         socketObj.ratioSellBuy = function (data) {
           $scope.ratioSellBuy = data;
           $scope.$apply();
         };
-        io.socket.on("RatioSellBuy", socketObj.ratioSellBuy);
+        socket.on("RatioSellBuy", socketObj.ratioSellBuy);
 
-        io.socket.off("Arbitrage", socketObj.arbitrageData);
+        socket.off("Arbitrage", socketObj.arbitrageData);
         socketObj.arbitrageData = function (data) {
           $scope.arbitrageData = data;
           $scope.$apply();
         };
-        io.socket.on("Arbitrage", socketObj.arbitrageData);
+        socket.on("Arbitrage", socketObj.arbitrageData);
       });
 
 
@@ -105,8 +108,18 @@ angular.module('starter.controllers', [])
 
 
   .controller('MarketlistsCtrl', function ($scope, $stateParams, apiService, $state) {
-    io.socket.close();
-    $scope.bitcoinPrice = 11300;
+    // socket.close();
+    $scope.currentScript = apiService.getScript();
+    $scope.currency1 = $scope.currentScript.currency1;
+    $scope.currency2 = $scope.currentScript.currency2;
+    $scope.currencyShortName2 = $scope.currentScript.currencyShortName1;
+    $scope.currencyShortName1 = $scope.currentScript.currencyShortName2;
+    $scope.market = $scope.currencyShortName2 + "/" + $scope.currencyShortName1;
+
+    $scope.initialRipple = $scope.currentScript.initialCurrency1;
+    $scope.initialBitcoin = $scope.currentScript.initialCurrency2;
+
+
     $scope.initial = function () {
       $scope.pageNo = 0;
       $scope.processes = [];
