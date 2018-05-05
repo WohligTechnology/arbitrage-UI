@@ -1,7 +1,6 @@
 angular.module('apiService', [])
   .factory('apiService', function ($http, $q, $timeout) {
     return {
-
       balance: function (callback) {
         $http({
           url: adminurl + 'Balance/getOldNew',
