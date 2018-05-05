@@ -2,13 +2,12 @@ angular.module('starter.controllers', [])
 
   .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
 
-
   })
-
-  .controller('HomeCtrl', function ($scope, $ionicModal, $timeout,$state,$rootScope) {
-  
+  .controller('HomeCtrl', function ($scope, $ionicModal, $timeout, $state, $rootScope) {
+    $scope.changeScript = function (script) {
+      apiService.setScript(script);
+    };
   })
-
   .controller('MarketStatusCtrl',
     function ($scope, $timeout, apiService) {
       $scope.valueOfBitcoin = 11300;
@@ -92,7 +91,6 @@ angular.module('starter.controllers', [])
 
 
   .controller('MarketlistsCtrl', function ($scope, $stateParams, apiService, $state) {
-
     $scope.bitcoinPrice = 11300;
     $scope.initial = function () {
       $scope.pageNo = 0;
@@ -100,14 +98,10 @@ angular.module('starter.controllers', [])
       $scope.$broadcast('scroll.infiniteScrollComplete');
     };
     $scope.initial();
-
-
     $scope.differenceTime = function (process) {
       var difference = moment(process.updatedAt).diff(moment(process.createdAt), "second");
       return difference;
     };
-
-
     $scope.moreDataCanBeLoaded = function () {
       return true;
       // console.log("More Data");
@@ -118,18 +112,13 @@ angular.module('starter.controllers', [])
         if (data.results.length == 20) {
           $scope.$broadcast('scroll.infiniteScrollComplete');
         }
-
       });
-
     };
-
     $scope.doRefresh = function () {
       $scope.initial();
       $scope.loadMoreData();
       $scope.$broadcast('scroll.refreshComplete');
     };
-
-
     $scope.checkTransaction1 = function (transaction) {
       if (transaction.status == "Pending" || transaction.status == "Cancelled") {
         apiService.cancelTransaction1(transaction._id, function () {
@@ -145,15 +134,12 @@ angular.module('starter.controllers', [])
       }
     };
   })
-
   .controller('GrowthCtrl', function ($scope, $ionicModal, $timeout, apiService) {
-
     function generateGraph(data) {
       console.log(data.length);
       $scope.labels = [];
       var script1Arr = [];
       var script2Arr = [];
-
       _.each(data, function (n) {
         // if (moment(n.date).isAfter("2018-04-25T12:18:54.539Z")) {
         $scope.labels.push(moment(n.date).format("H:mm, D MMM"));

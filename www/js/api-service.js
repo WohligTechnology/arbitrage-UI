@@ -1,6 +1,31 @@
 angular.module('apiService', [])
-  .factory('apiService', function ($http, $q, $timeout) {
+  .factory('apiService', function ($http, $q, $timeout, $state) {
+    var scripts = {
+      "TRX": {
+        script: "TRX",
+        url: "http://trx.wohlig.com",
+      },
+      "XRP": {
+        script: "XRP",
+        url: "http://vivek.wohlig.com",
+      },
+      "STORM": {
+        script: "TRX",
+        url: "http://strom.wohlig.com",
+      }
+    };
     return {
+      setScript: function (script) {
+        $.jStorage.set("script", scripts[script]);
+      },
+      getScript: function () {
+        var scriptDet = $.jStorage.get("script");
+        if (scriptDet) {
+          return scriptDet;
+        } else {
+          $state.go("app.home");
+        }
+      },
       balance: function (callback) {
         $http({
           url: adminurl + 'Balance/getOldNew',
