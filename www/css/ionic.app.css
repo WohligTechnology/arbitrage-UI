@@ -9999,7 +9999,9 @@ span.show-quantity {
   width: 100%;
   line-height: 36px; }
   .footer-text a {
-    color: white; }
+    color: white;
+    text-decoration: none;
+    font-weight: bold; }
 
 .card.custom_card {
   box-shadow: none; }
@@ -10009,6 +10011,8 @@ span.show-quantity {
   .card.custom_card .item:hover {
     font-weight: bold;
     color: white; }
+  .card.custom_card.disabled {
+    opacity: 0.5; }
 
 .bar .button.button-clear .icon:before,
 .bar .button.button-clear.icon:before,
