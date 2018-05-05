@@ -1,3 +1,4 @@
+var socketObj = {};
 angular.module('starter.controllers', [])
 
   .controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
@@ -15,7 +16,11 @@ angular.module('starter.controllers', [])
   .controller('MarketStatusCtrl',
     function ($scope, $timeout, apiService) {
 
+
       $scope.currentScript = apiService.getScript();
+      io.sails.url = $scope.currentScript.url;
+      io.sails.connect();
+
       $scope.currency1 = $scope.currentScript.currency1;
       $scope.currency2 = $scope.currentScript.currency2;
       $scope.currencyShortName2 = $scope.currentScript.currencyShortName1;
@@ -69,18 +74,30 @@ angular.module('starter.controllers', [])
         });
       }
       getArbitrage();
-      io.socket.on("RatioBuySell", function (data) {
-        $scope.ratioBuySell = data;
-        $scope.$apply();
+      io.socket.on('connect', function () {
+        io.socket.off("RatioBuySell", socketObj.ratioBuySell);
+        socketObj.ratioBuySell = function (data) {
+          $scope.ratioBuySell = data;
+          $scope.$apply();
+        };
+        io.socket.on("RatioBuySell", socketObj.ratioBuySell);
+
+        io.socket.off("RatioSellBuy", socketObj.ratioSellBuy);
+        socketObj.ratioSellBuy = function (data) {
+          $scope.ratioSellBuy = data;
+          $scope.$apply();
+        };
+        io.socket.on("RatioSellBuy", socketObj.ratioSellBuy);
+
+        io.socket.off("Arbitrage", socketObj.arbitrageData);
+        socketObj.arbitrageData = function (data) {
+          $scope.arbitrageData = data;
+          $scope.$apply();
+        };
+        io.socket.on("Arbitrage", socketObj.arbitrageData);
       });
-      io.socket.on("RatioSellBuy", function (data) {
-        $scope.ratioSellBuy = data;
-        $scope.$apply();
-      });
-      io.socket.on("Arbitrage", function (data) {
-        $scope.arbitrageData = data;
-        $scope.$apply();
-      });
+
+
 
     })
 
@@ -88,6 +105,7 @@ angular.module('starter.controllers', [])
 
 
   .controller('MarketlistsCtrl', function ($scope, $stateParams, apiService, $state) {
+    io.socket.close();
     $scope.bitcoinPrice = 11300;
     $scope.initial = function () {
       $scope.pageNo = 0;
