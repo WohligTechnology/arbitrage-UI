@@ -27,7 +27,7 @@ angular.module('apiService', [])
         url: "http://storm.wohlig.com",
         currency1: "Strom",
         currency2: "Bitcoin",
-        initialCurrency1: 20789.6100,
+        initialCurrency1: 20719.6100,
         initialCurrency2: 0.15798065,
         initialDate: "05-03-2018"
       }
