@@ -84,6 +84,23 @@ angular.module('starter.controllers', [])
     })
 
   .controller('MarketlistsCtrl', function ($scope, $stateParams, apiService) {
+
+
+    $scope.checkTransaction1 = function (transaction) {
+      if (transaction.status == "Pending" || transaction.status == "Cancelled") {
+        apiService.cancelTransaction1(transaction._id, function () {
+
+        });
+      }
+    };
+    $scope.checkTransaction2 = function (transaction) {
+      if (transaction.status == "Pending" || transaction.status == "Cancelled") {
+        apiService.cancelTransaction2(transaction._id, function () {
+
+        });
+      }
+    };
+
     $scope.currencyShortName2 = "XRP";
     $scope.bitcoinPrice = 11300;
     $scope.initial = function () {
