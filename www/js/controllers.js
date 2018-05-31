@@ -44,12 +44,14 @@ angular.module('starter.controllers', [])
           balance: apiService.balance,
           marketsData: apiService.getLastMarketData
         }, function (err, data) {
+          console.log(data);
           $scope.oldBalance = data.balance.old;
           $scope.newBalance = data.balance.new;
           $scope.newBinance = _.find($scope.newBalance, function (n) {
             return n.market == "Binance";
           });
           $scope.market1Data = {};
+
           $scope.market1Data.bitcoin = parseFloat($scope.newBinance.data[$scope.currencyShortName2].available) + parseFloat($scope.newBinance.data[$scope.currencyShortName2].onOrder);
           $scope.market1Data.usd = parseFloat($scope.newBinance.data.BTC.available) + parseFloat($scope.newBinance.data.BTC.onOrder);
           $scope.newHitbtc = _.find($scope.newBalance, function (n) {
@@ -77,7 +79,6 @@ angular.module('starter.controllers', [])
       }
       getArbitrage();
       socket.on('connect', function () {
-        console.log("Lo");
         socket.off("RatioBuySell", socketObj.ratioBuySell);
         socketObj.ratioBuySell = function (data) {
           $scope.ratioBuySell = data;
