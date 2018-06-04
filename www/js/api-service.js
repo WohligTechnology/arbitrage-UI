@@ -28,7 +28,7 @@ angular.module('apiService', [])
         currency1: "Strom",
         currency2: "Bitcoin",
         initialCurrency1: 20719.6100,
-        initialCurrency2: 0.08339365,
+        initialCurrency2: 0.14977608,
         initialDate: "05-03-2018"
       }
     };
