@@ -8,7 +8,7 @@ angular.module('apiService', [])
         currency1: "Tron",
         currency2: "Bitcoin",
         initialCurrency1: 80000,
-        initialCurrency2: 0.4522775,
+        initialCurrency2: 0.05522775,
         initialDate: "03-29-2018"
       },
       "XRP": {
