@@ -10,7 +10,6 @@ angular.module('starter.controllers', [])
       apiService.setScript(script, function () {
         $state.go("app.marketstatus");
       });
-
     };
     // $scope.currentScript = apiService.getScript();
   })
