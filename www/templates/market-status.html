@@ -44,7 +44,7 @@
               </label>
             </div>
             <div class="col col-66">
-              {{currencyShortName2}} {{initialRipple|number:4}} - BTC {{initialBitcoin}}
+              {{currencyShortName2}} {{initialRipple|number:currentScript.currency1Decimal}} - BTC {{initialBitcoin|number:currentScript.currency2Decimal}}
             </div>
           </div>
           <div class="row">
@@ -54,7 +54,7 @@
               </label>
             </div>
             <div class="col col-66">
-              {{currencyShortName2}} {{totalBitcoin|number:4}} - BTC {{totalUsd|number:8}}
+              {{currencyShortName2}} {{totalBitcoin|number:currentScript.currency1Decimal}} - BTC {{totalUsd|number:currentScript.currency2Decimal}}
             </div>
           </div>
           <div class="row">
@@ -119,7 +119,7 @@
                   <label for="">{{currency2}}</label>
                 </div>
                 <div class="col col-66">
-                  {{market1Data.usd|number:8}}
+                  {{market1Data.usd|number:currentScript.currency2Decimal}}
                 </div>
               </div>
               <div class="row">
@@ -127,7 +127,7 @@
                   <label for="">{{currency1}}</label>
                 </div>
                 <div class="col col-66">
-                  {{market1Data.bitcoin|number:4}}
+                  {{market1Data.bitcoin|number:currentScript.currency1Decimal}}
                 </div>
               </div>
             </div>
@@ -139,7 +139,7 @@
                   <label for="">{{currency2}}</label>
                 </div>
                 <div class="col col-66">
-                  {{market2Data.usd|number:8}}
+                  {{market2Data.usd|number:currentScript.currency2Decimal}}
                 </div>
               </div>
               <div class="row">
@@ -147,7 +147,7 @@
                   <label for=""> {{currency1}}</label>
                 </div>
                 <div class="col col-66">
-                  {{market2Data.bitcoin|number:4}}
+                  {{market2Data.bitcoin|number:currentScript.currency1Decimal}}
                 </div>
               </div>
             </div>
@@ -170,7 +170,7 @@
                   <label for=""> Ask</label>
                 </div>
                 <div class="col col-66">
-                  {{ratioBuySell.ask|number:8}}
+                  {{ratioBuySell.ask|number:currentScript.rateDecimal}}
                 </div>
               </div>
               <div class="row">
@@ -178,7 +178,7 @@
                   <label for=""> Bid </label>
                 </div>
                 <div class="col col-66">
-                  {{ratioBuySell.bid|number:8}}
+                  {{ratioBuySell.bid|number:currentScript.rateDecimal}}
                 </div>
               </div>
             </div>
@@ -190,7 +190,7 @@
                   <label for=""> Ask </label>
                 </div>
                 <div class="col col-66">
-                  {{ratioSellBuy.ask|number:8}}
+                  {{ratioSellBuy.ask|number:currentScript.rateDecimal}}
                 </div>
               </div>
               <div class="row">
@@ -198,7 +198,7 @@
                   <label for=""> Bid </label>
                 </div>
                 <div class="col col-66">
-                  {{ratioSellBuy.bid|number:8}}
+                  {{ratioSellBuy.bid|number:currentScript.rateDecimal}}
                 </div>
               </div>
             </div>
