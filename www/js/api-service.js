@@ -12,7 +12,8 @@ angular.module('apiService', [])
         initialDate: "07-24-2018",
         currency1Decimal: 0,
         currency2Decimal: 8,
-        rateDecimal: 10
+        rateDecimal: 10,
+        minimumInHitbtcQuantity: 100
       }
     };
     return {

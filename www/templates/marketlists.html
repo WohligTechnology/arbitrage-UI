@@ -28,7 +28,7 @@
           <div class="row">
             <div class="col">
               <h2>
-                <span class="small-title">Qty:</span> {{process.transaction1.amountBTC|number:2}}</h2>
+                <span class="small-title">Qty:</span> {{process.transaction1.amountBTC|number:currentScript.currency1Decimal}}</h2>
             </div>
             <div class="col">
               <h3>
@@ -36,7 +36,7 @@
             </div>
             <div class="col">
               <h3>
-                <span class="small-title">Profit:</span> {{currencyShortName2}} {{(process.ratio-1.002)*process.transaction1.amountBTC|number:4}}</h3>
+                <span class="small-title">Profit:</span> {{currencyShortName2}} {{(process.ratio-1.002)*process.transaction1.amountBTC|number:currentScript.currency1Decimal}}</h3>
             </div>
           </div>
           <div class="row" ng-if="process.processType=='BuySell'">
@@ -47,7 +47,7 @@
                           'ion-close-circled button-assertive':process.transaction1.status=='Cancelled'
                         }" class="button button-small button-block icon-right">Buy: Binance</a>
               <div class="show-other">
-                <span class="show-rate">Rate: {{process.transaction1.rate}} </span>
+                <span class="show-rate">Rate: {{process.transaction1.rate|number:currentScript.rateDecimal}} </span>
                 <span class="show-quantity">Qty: {{process.transaction1.response.executedQty|number:0}}</span>
               </div>
 
@@ -59,8 +59,8 @@
                       'ion-close-circled button-assertive':process.transaction2.status=='Cancelled'
                     }" class="button button-small button-block icon-right ">Sell: Hibtc</a>
               <div class="show-other">
-                <span class="show-rate">Rate: {{process.transaction2.rate}} </span>
-                <span class="show-quantity">Qty: {{process.transaction2.response.execQuantity*10|number:0}}</span>
+                <span class="show-rate">Rate: {{process.transaction2.rate|number:currentScript.rateDecimal}} </span>
+                <span class="show-quantity">Qty: {{process.transaction2.response.execQuantity*currentScript.minimumInHitbtcQuantity|number:0}}</span>
               </div>
             </div>
 
@@ -76,7 +76,7 @@
 
               <div class="show-other">
                 <span class="show-rate">Rate: {{process.transaction2.rate}} </span>
-                <span class="show-quantity">Qty: {{process.transaction2.response.execQuantity*10|number:0}}</span>
+                <span class="show-quantity">Qty: {{process.transaction2.response.execQuantity*currentScript.minimumInHitbtcQuantity}}</span>
               </div>
             </div>
             <div class="col">
