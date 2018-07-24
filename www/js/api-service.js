@@ -1,35 +1,15 @@
 angular.module('apiService', [])
   .factory('apiService', function ($http, $q, $timeout, $state) {
     var scripts = {
-      "TRX": {
-        currencyShortName1: "TRX",
+      "BCN": {
+        currencyShortName1: "BCN",
         currencyShortName2: "BTC",
-        url: "http://trx.wohlig.com",
-        currency1: "Tron",
+        url: "http://bcn.wohlig.com",
+        currency1: "Bytecoin",
         currency2: "Bitcoin",
-        initialCurrency1: 80000,
-        initialCurrency2: 0.05522775,
-        initialDate: "03-29-2018"
-      },
-      "XRP": {
-        currencyShortName1: "XRP",
-        currencyShortName2: "BTC",
-        url: "http://vivek.wohlig.com",
-        currency1: "Ripple",
-        currency2: "Bitcoin",
-        initialCurrency1: 1771,
-        initialCurrency2: 0.197,
-        initialDate: "02-23-2018"
-      },
-      "STORM": {
-        currencyShortName1: "STORM",
-        currencyShortName2: "BTC",
-        url: "http://storm.wohlig.com",
-        currency1: "Strom",
-        currency2: "Bitcoin",
-        initialCurrency1: 20719.6100,
-        initialCurrency2: 0.14977608,
-        initialDate: "05-03-2018"
+        initialCurrency1: 306900.000000000,
+        initialCurrency2: 0.15376002,
+        initialDate: "07-24-2018"
       }
     };
     return {
