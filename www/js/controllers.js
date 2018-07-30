@@ -136,7 +136,14 @@ angular.module('starter.controllers', [])
     };
     $scope.loadMoreData = function () {
       apiService.searchProcess(++$scope.pageNo, function (data) {
+        console.log(data.results);
         $scope.processes = _.concat($scope.processes, data.results);
+        _.each($scope.processes, function (n) {
+          if (n.transaction2.market == "Hitbtc" && n.transaction2.status == "Completed") {
+            n.transaction2.rate = n.transaction2.response.avgPrice;
+          }
+
+        });
         if (data.results.length == 20) {
           $scope.$broadcast('scroll.infiniteScrollComplete');
         }
