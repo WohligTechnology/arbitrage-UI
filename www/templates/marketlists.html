@@ -36,7 +36,7 @@
             </div>
             <div class="col">
               <h3>
-                <span class="small-title">Profit:</span> {{currencyShortName2}} {{(process.ratio-1.002)*process.transaction1.amountBTC|number:currentScript.currency1Decimal}}</h3>
+                <span class="small-title">Profit:</span> {{currencyShortName2}} {{(process.ratio-1.0025)*process.transaction1.amountBTC|number:currentScript.currency1Decimal}}</h3>
             </div>
           </div>
           <div class="row" ng-if="process.processType=='BuySell'">
