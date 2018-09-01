@@ -4,7 +4,7 @@ angular.module('apiService', [])
       "BCN": {
         currencyShortName1: "BCN",
         currencyShortName2: "BTC",
-        url: "http://bcn.wohlig.com",
+        url: "https://bcn.wohlig.in",
         currency1: "Bytecoin",
         currency2: "Bitcoin",
         initialCurrency1: 306900.000000000,
