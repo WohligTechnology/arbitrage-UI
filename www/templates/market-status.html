@@ -44,7 +44,8 @@
               </label>
             </div>
             <div class="col col-66">
-              {{currencyShortName2}} {{initialRipple|number:currentScript.currency1Decimal}} - BTC {{initialBitcoin|number:currentScript.currency2Decimal}}
+              {{currencyShortName2}} {{initialRipple|number:currentScript.currency1Decimal}} - BTC
+              {{initialBitcoin|number:currentScript.currency2Decimal}}
             </div>
           </div>
           <div class="row">
@@ -54,7 +55,41 @@
               </label>
             </div>
             <div class="col col-66">
-              {{currencyShortName2}} {{totalBitcoin|number:currentScript.currency1Decimal}} - BTC {{totalUsd|number:currentScript.currency2Decimal}}
+              {{currencyShortName2}} {{totalBitcoin|number:currentScript.currency1Decimal}} - BTC
+              {{totalUsd|number:currentScript.currency2Decimal}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-33">
+              <label for="">
+                {{currencyShortName2}} (USD)
+              </label>
+            </div>
+            <div class="col col-66">
+              ${{arbitrage.script1Value.data.quotes.USD.price}} |
+              {{arbitrage.script1Value.data.quotes.USD.price*initialRipple|currency}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-33">
+              <label for="">
+                {{currencyShortName1}} (USD)
+              </label>
+            </div>
+            <div class="col col-66">
+              {{arbitrage.script2Value.data.quotes.USD.price|currency}} |
+              {{arbitrage.script2Value.data.quotes.USD.price*initialBitcoin|currency}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-33">
+              <label for="">
+                Total (USD)
+              </label>
+            </div>
+            <div class="col col-66">
+              {{(arbitrage.script1Value.data.quotes.USD.price*initialRipple) +
+              (arbitrage.script2Value.data.quotes.USD.price*initialBitcoin)|currency}}
             </div>
           </div>
           <div class="row">

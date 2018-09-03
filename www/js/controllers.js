@@ -73,7 +73,8 @@ angular.module('starter.controllers', [])
 
       function getArbitrage() {
         apiService.getArbitrage(function (err, data) {
-          $scope.arbitrage = data;
+          $scope.arbitrage = data.data;
+          console.log($scope.arbitrage);
         });
       }
       getArbitrage();
