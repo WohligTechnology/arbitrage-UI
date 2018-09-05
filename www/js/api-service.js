@@ -1,5 +1,5 @@
 angular.module('apiService', [])
-  .factory('apiService', function ($http, $q, $timeout, $state) {
+  .factory('apiService', function ($http, $timeout, $state) {
     var scripts = {
       "BCN": {
         currencyShortName1: "BCN",
