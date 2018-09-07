@@ -140,6 +140,14 @@ angular.module('starter.controllers', [])
         console.log(data.results);
         $scope.processes = _.concat($scope.processes, data.results);
         _.each($scope.processes, function (n) {
+          console.log(n);
+          if (n.transaction2.response.avgPrice) {
+            if (n.processType == "BuySell") {
+              n.ratio = parseFloat(n.transaction2.response.avgPrice) / parseFloat(n.transaction1.rate);
+            } else {
+              n.ratio = parseFloat(n.transaction1.rate) / parseFloat(n.transaction2.response.avgPrice);
+            }
+          }
           if (n.transaction2.market == "Hitbtc" && n.transaction2.status == "Completed") {
             n.transaction2.rate = n.transaction2.response.avgPrice;
           }
