@@ -137,10 +137,8 @@ angular.module('starter.controllers', [])
     };
     $scope.loadMoreData = function () {
       apiService.searchProcess(++$scope.pageNo, function (data) {
-        console.log(data.results);
         $scope.processes = _.concat($scope.processes, data.results);
         _.each($scope.processes, function (n) {
-          console.log(n);
           if (n.transaction2.response.avgPrice) {
             if (n.processType == "BuySell") {
               n.ratio = parseFloat(n.transaction2.response.avgPrice) / parseFloat(n.transaction1.rate);
