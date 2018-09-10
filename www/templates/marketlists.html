@@ -65,7 +65,7 @@
               <div class="show-other">
                 <span class="show-rate">Rate: {{process.transaction2.rate|number:currentScript.rateDecimal}} </span>
                 <span class="show-quantity">Qty:
-                  {{process.transaction2.response.execQuantity*currentScript.minimumInHitbtcQuantity|number:0}}</span>
+                  {{process.transaction2.response.cumQuantity*currentScript.minimumInHitbtcQuantity|number:0}}</span>
               </div>
             </div>
 
@@ -83,7 +83,7 @@
               <div class="show-other">
                 <span class="show-rate">Rate: {{process.transaction2.rate|number:currentScript.rateDecimal}} </span>
                 <span class="show-quantity">Qty:
-                  {{process.transaction2.response.execQuantity*currentScript.minimumInHitbtcQuantity|number:0}}</span>
+                  {{process.transaction2.response.cumQuantity*currentScript.minimumInHitbtcQuantity|number:0}}</span>
               </div>
             </div>
             <div class="col">
