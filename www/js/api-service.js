@@ -10,7 +10,7 @@ angular
         currency2: "Bitcoin",
         initialCurrency1: 0,
         initialCurrency2: 2,
-        initialDate: "07-24-2018",
+        initialDate: "11-07-2018",
         currency1Decimal: 0,
         currency2Decimal: 8,
         rateDecimal: 10,
