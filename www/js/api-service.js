@@ -13,7 +13,7 @@ angular
         initialDate: "11-07-2018",
         currency1Decimal: 2,
         currency2Decimal: 4,
-        rateDecimal: 5,
+        rateDecimal: 4,
         minimumInHitbtcQuantity: 100
       }
     };
