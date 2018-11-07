@@ -2,11 +2,11 @@ angular
   .module("apiService", [])
   .factory("apiService", function($http, $timeout, $state) {
     var scripts = {
-      BTG: {
-        currencyShortName1: "BTG",
+      TRX: {
+        currencyShortName1: "TRX",
         currencyShortName2: "BTC",
-        url: "https://btg.wohlig.in",
-        currency1: "BitcoinGold",
+        url: "https://trx.wohlig.in",
+        currency1: "Tron",
         currency2: "Bitcoin",
         initialCurrency1: 0,
         initialCurrency2: 3.9974,
