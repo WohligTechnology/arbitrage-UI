@@ -13,7 +13,7 @@ angular
         initialDate: "11-07-2018",
         market1Currency1: 439397,
         market2Currency1: 679231,
-        market1Currency2: 2.12,
+        market1Currency2: 2.16,
         market2Currency2: 0.98,
         currency1Decimal: 2,
         currency2Decimal: 4,
