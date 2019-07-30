@@ -11,13 +11,13 @@ angular
         initialCurrency1: 540000,
         initialCurrency2: 2,
         initialDate: "11-07-2018",
-        market1Currency1: 540000,
-        market2Currency1: 540000,
-        market1Currency2: 2.32,
-        market2Currency2: 2.32,
+        market1Currency1: 439397,
+        market2Currency1: 679231,
+        market1Currency2: 2.12,
+        market2Currency2: 0.98,
         currency1Decimal: 2,
         currency2Decimal: 4,
-        rateDecimal: 8,
+        rateDecimal: 10,
         minQuantity: 1000,
         requiredRatio: 1.25
       }

@@ -70,6 +70,7 @@ angular
     });
 
     function getCurrentAmount(data) {
+      console.log(data);
       $scope.market = { market1: data.market1, market2: data.market2 };
       $scope.buySellRatio = data.market1.bid / data.market2.ask;
       $scope.sellBuyRatio = data.market2.bid / data.market1.ask;
