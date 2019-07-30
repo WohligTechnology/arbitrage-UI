@@ -12,12 +12,15 @@ angular
         initialCurrency1: 540000,
         initialCurrency2: 1.99,
         initialDate: "11-07-2018",
-        finalCurrency1: 869832,
-        finalCurrency2: 2.32,
+        market1Currency1: 540000,
+        market2Currency1: 540000,
+        market1Currency2: 2.32,
+        market2Currency2: 2.32,
         currency1Decimal: 2,
         currency2Decimal: 4,
         rateDecimal: 8,
-        minimumInHitbtcQuantity: 100
+        minQuantity: 1000,
+        requiredRatio: 1.25
       }
     };
     return {

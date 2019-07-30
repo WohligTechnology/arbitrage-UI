@@ -128,19 +128,21 @@
             <div class="bid-box">
               <div class="row">
                 <div class="col col-33">
-                  <label for="">{{ currency2 }}</label>
-                </div>
-                <div class="col col-66">
-                  {{ market1Data.usd | number: currentScript.currency2Decimal }}
-                </div>
-              </div>
-              <div class="row">
-                <div class="col col-33">
                   <label for="">{{ currency1 }}</label>
                 </div>
                 <div class="col col-66">
                   {{
-                    market1Data.bitcoin | number: currentScript.currency1Decimal
+                    market1Currency1 | number: currentScript.currency1Decimal
+                  }}
+                </div>
+              </div>
+              <div class="row">
+                <div class="col col-33">
+                  <label for="">{{ currency2 }}</label>
+                </div>
+                <div class="col col-66">
+                  {{
+                    market1Currency2 | number: currentScript.currency2Decimal
                   }}
                 </div>
               </div>
@@ -153,7 +155,9 @@
                   <label for="">{{ currency2 }}</label>
                 </div>
                 <div class="col col-66">
-                  {{ market2Data.usd | number: currentScript.currency2Decimal }}
+                  {{
+                    market2Currency1 | number: currentScript.currency1Decimal
+                  }}
                 </div>
               </div>
               <div class="row">
@@ -162,7 +166,7 @@
                 </div>
                 <div class="col col-66">
                   {{
-                    market2Data.bitcoin | number: currentScript.currency1Decimal
+                    market2Currency2 | number: currentScript.currency2Decimal
                   }}
                 </div>
               </div>
@@ -186,7 +190,7 @@
                   <label for=""> Ask</label>
                 </div>
                 <div class="col col-66">
-                  {{ ratioBuySell.ask | number: currentScript.rateDecimal }}
+                  {{ market.market1.ask | number: currentScript.rateDecimal }}
                 </div>
               </div>
               <div class="row">
@@ -194,7 +198,7 @@
                   <label for=""> Bid </label>
                 </div>
                 <div class="col col-66">
-                  {{ ratioBuySell.bid | number: currentScript.rateDecimal }}
+                  {{ market.market1.bid | number: currentScript.rateDecimal }}
                 </div>
               </div>
             </div>
@@ -206,7 +210,7 @@
                   <label for=""> Ask </label>
                 </div>
                 <div class="col col-66">
-                  {{ ratioSellBuy.ask | number: currentScript.rateDecimal }}
+                  {{ market.market2.ask | number: currentScript.rateDecimal }}
                 </div>
               </div>
               <div class="row">
@@ -214,7 +218,7 @@
                   <label for=""> Bid </label>
                 </div>
                 <div class="col col-66">
-                  {{ ratioSellBuy.bid | number: currentScript.rateDecimal }}
+                  {{ market.market2.bid | number: currentScript.rateDecimal }}
                 </div>
               </div>
             </div>
@@ -237,7 +241,7 @@
                   <label for=""> Buy Sell </label>
                 </div>
                 <div class="col">
-                  {{ ratioBuySell.ratio | number: 4 }}
+                  {{ buySellRatio | number: 4 }}
                 </div>
               </div>
               <div class="row">
@@ -253,7 +257,7 @@
                   <label for=""> Min Qty </label>
                 </div>
                 <div class="col">
-                  {{ ratioBuySell.amountBTC }}
+                  {{ minQuantity }}
                 </div>
               </div>
             </div>
@@ -265,7 +269,7 @@
                   <label for=""> Sell Buy </label>
                 </div>
                 <div class="col">
-                  {{ ratioSellBuy.ratio | number: 4 }}
+                  {{ sellBuyRatio | number: 4 }}
                 </div>
               </div>
               <div class="row">
@@ -281,7 +285,7 @@
                   <label for=""> Min Qty </label>
                 </div>
                 <div class="col">
-                  {{ ratioSellBuy.amountBTC }}
+                  {{ minQuantity }}
                 </div>
               </div>
             </div>

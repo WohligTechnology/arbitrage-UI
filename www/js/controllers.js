@@ -30,10 +30,23 @@ angular
     $scope.currencyShortName2 = $scope.currentScript.currencyShortName2;
     $scope.market = $scope.currencyShortName2 + "/" + $scope.currencyShortName1;
 
+    $scope.minQuantity = $scope.currentScript.minQuantity;
+
     $scope.initialCurrency1 = $scope.currentScript.initialCurrency1;
     $scope.initialCurrency2 = $scope.currentScript.initialCurrency2;
-    $scope.finalCurrency1 = $scope.currentScript.finalCurrency1;
-    $scope.finalCurrency2 = $scope.currentScript.finalCurrency2;
+
+    $scope.market1Currency1 = $scope.currentScript.market1Currency1;
+    $scope.market1Currency2 = $scope.currentScript.market1Currency2;
+
+    $scope.market2Currency1 = $scope.currentScript.market2Currency1;
+    $scope.market2Currency2 = $scope.currentScript.market2Currency2;
+
+    $scope.finalCurrency1 =
+      $scope.currentScript.market1Currency1 +
+      $scope.currentScript.market2Currency1;
+    $scope.finalCurrency2 =
+      $scope.currentScript.market1Currency2 +
+      $scope.currentScript.market2Currency2;
 
     $scope.initialDateMoment = moment(
       $scope.currentScript.initialDate,
@@ -51,11 +64,15 @@ angular
     });
 
     function getCurrentAmount(data) {
-      $scope.marketData = data;
+      $scope.market = data;
       $scope.growth1 = $scope.finalCurrency1 / $scope.initialCurrency1 - 1;
       $scope.growth2 = $scope.finalCurrency2 / $scope.initialCurrency2 - 1;
       $scope.annualizedGrowth1 = ($scope.growth1 * daysInYear) / days;
       $scope.annualizedGrowth2 = ($scope.growth2 * daysInYear) / days;
+
+      $scope.buySellRatio = data.market1.bid / data.market2.ask;
+      $scope.sellBuyRatio = data.market2.bid / data.market1.ask;
+      $scope.$apply();
     }
   })
 
