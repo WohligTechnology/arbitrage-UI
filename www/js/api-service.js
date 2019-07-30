@@ -5,7 +5,7 @@ angular
       TRX: {
         currencyShortName1: "TRX",
         currencyShortName2: "BTC",
-        url: "https://trx.wohlig.in",
+        url: "http://localhost:1337",
         currency1: "Tron",
         currency2: "Bitcoin",
         initialCurrency1: 540000,

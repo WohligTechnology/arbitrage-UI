@@ -3,9 +3,10 @@
   "short_name": "Arbitrage STORM vs BTC",
   "start_url": "index.html",
   "display": "standalone",
-  "icons": [{
-    "src": "img/ionic.png",
-    "sizes": "512x512",
-    "type": "image/png"
-  }]
+  "icons": [
+    {
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
