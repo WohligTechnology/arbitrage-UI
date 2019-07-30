@@ -60,17 +60,17 @@ angular
     $scope.initialDate = $scope.initialDateMoment.toDate();
     $scope.currentDate = $scope.currentDateMoment.toDate();
 
+    $scope.growth1 = $scope.finalCurrency1 / $scope.initialCurrency1 - 1;
+    $scope.growth2 = $scope.finalCurrency2 / $scope.initialCurrency2 - 1;
+    $scope.annualizedGrowth1 = ($scope.growth1 * daysInYear) / days;
+    $scope.annualizedGrowth2 = ($scope.growth2 * daysInYear) / days;
+
     socket.on("market-rates", function(marketData) {
       getCurrentAmount(marketData);
     });
 
     function getCurrentAmount(data) {
-      $scope.market = data;
-      $scope.growth1 = $scope.finalCurrency1 / $scope.initialCurrency1 - 1;
-      $scope.growth2 = $scope.finalCurrency2 / $scope.initialCurrency2 - 1;
-      $scope.annualizedGrowth1 = ($scope.growth1 * daysInYear) / days;
-      $scope.annualizedGrowth2 = ($scope.growth2 * daysInYear) / days;
-
+      $scope.market = { market1: data.market1, market2: data.market2 };
       $scope.buySellRatio = data.market1.bid / data.market2.ask;
       $scope.sellBuyRatio = data.market2.bid / data.market1.ask;
       $scope.$apply();

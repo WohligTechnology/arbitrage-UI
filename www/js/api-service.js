@@ -8,9 +8,8 @@ angular
         url: "https://trx.wohlig.in",
         currency1: "Tron",
         currency2: "Bitcoin",
-
         initialCurrency1: 540000,
-        initialCurrency2: 1.99,
+        initialCurrency2: 2,
         initialDate: "11-07-2018",
         market1Currency1: 540000,
         market2Currency1: 540000,
