@@ -8,9 +8,12 @@ angular
         url: "http://localhost:1337",
         currency1: "Tron",
         currency2: "Bitcoin",
+
         initialCurrency1: 540000,
         initialCurrency2: 1.99,
         initialDate: "11-07-2018",
+        finalCurrency1: 869832,
+        finalCurrency2: 2.32,
         currency1Decimal: 2,
         currency2Decimal: 4,
         rateDecimal: 8,

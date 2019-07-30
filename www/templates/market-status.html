@@ -1,9 +1,14 @@
 <ion-view>
   <ion-header-bar class="bar-positive">
     <div class="buttons">
-      <button class="button icon-left ion-chevron-left button-clear" ui-sref="app.home">Home</button>
+      <button
+        class="button icon-left ion-chevron-left button-clear"
+        ui-sref="app.home"
+      >
+        Home
+      </button>
     </div>
-    <h1 class="title">{{currencyShortName2}} Status</h1>
+    <h1 class="title">{{ currencyShortName2 }} Status</h1>
     <div class="buttons">
       <button class="button" ui-sref="app.marketlists">Transactions</button>
     </div>
@@ -24,7 +29,7 @@
               </label>
             </div>
             <div class="col col-66">
-              {{initialDate|date}}
+              {{ initialDate | date }}
             </div>
           </div>
           <div class="row">
@@ -34,7 +39,7 @@
               </label>
             </div>
             <div class="col col-66">
-              {{currentDate|date}}
+              {{ currentDate | date }}
             </div>
           </div>
           <div class="row">
@@ -44,8 +49,11 @@
               </label>
             </div>
             <div class="col col-66">
-              {{currencyShortName2}} {{initialRipple|number:currentScript.currency1Decimal}} - BTC
-              {{initialBitcoin|number:currentScript.currency2Decimal}}
+              {{ currencyShortName1 }}
+              {{ initialCurrency1 | number: currentScript.currency1Decimal }}
+              -
+              {{ currencyShortName2 }}
+              {{ initialCurrency2 | number: currentScript.currency2Decimal }}
             </div>
           </div>
           <div class="row">
@@ -55,53 +63,21 @@
               </label>
             </div>
             <div class="col col-66">
-              {{currencyShortName2}} {{totalBitcoin|number:currentScript.currency1Decimal}} - BTC
-              {{totalUsd|number:currentScript.currency2Decimal}}
+              {{ currencyShortName1 }}
+              {{ finalCurrency1 | number: currentScript.currency1Decimal }} -
+              {{ currencyShortName2 }}
+              {{ finalCurrency2 | number: currentScript.currency2Decimal }}
             </div>
           </div>
-          <div class="row">
-            <div class="col col-33">
-              <label for="">
-                {{currencyShortName2}} (USD)
-              </label>
-            </div>
-            <div class="col col-66">
-              ${{arbitrage.script1Value.data.quotes.USD.price}} |
-              {{arbitrage.script1Value.data.quotes.USD.price*totalBitcoin|currency}}
-            </div>
-          </div>
-          <div class="row">
-            <div class="col col-33">
-              <label for="">
-                {{currencyShortName1}} (USD)
-              </label>
-            </div>
-            <div class="col col-66">
-              {{arbitrage.script2Value.data.quotes.USD.price|currency}} |
-              {{arbitrage.script2Value.data.quotes.USD.price*totalUsd|currency}}
-            </div>
-          </div>
-          <div class="row">
-            <div class="col col-33">
-              <label for="">
-                Total (USD)
-              </label>
-            </div>
-            <div class="col col-66">
-              {{(arbitrage.script1Value.data.quotes.USD.price*totalBitcoin) +
-              (arbitrage.script2Value.data.quotes.USD.price*totalUsd)|currency}}
-            </div>
-          </div>
-          <div class="row">
-            <div class="col col-33">
-              <label for="">
-                Growth (in {{days}} Days)
-              </label>
-            </div>
-            <div class="col col-66">
-              {{currencyShortName2}} {{rippleGrowth*100|number:2}}% - BTC {{bitcoinGrowth*100|number:2}}%
-            </div>
 
+          <div class="row">
+            <div class="col col-33">
+              <label for=""> Growth (in {{ days }} Days) </label>
+            </div>
+            <div class="col col-66">
+              {{ currencyShortName1 }} {{ growth1 * 100 | number: 2 }}% -
+              {{ currencyShortName2 }} {{ growth2 * 100 | number: 2 }}%
+            </div>
           </div>
           <div class="row">
             <div class="col col-33">
@@ -110,11 +86,12 @@
               </label>
             </div>
             <div class="col col-66">
-              {{currencyShortName2}} {{annulizedRipple*100|number:2}}% - BTC {{annulizedBitcoin*100|number:2}}%
+              {{ currencyShortName1 }}
+              {{ annualizedGrowth1 * 100 | number: 2 }}% -
+              {{ currencyShortName2 }}
+              {{ annualizedGrowth2 * 100 | number: 2 }}%
             </div>
           </div>
-
-
         </div>
       </div>
       <div class="item">
@@ -151,18 +128,20 @@
             <div class="bid-box">
               <div class="row">
                 <div class="col col-33">
-                  <label for="">{{currency2}}</label>
+                  <label for="">{{ currency2 }}</label>
                 </div>
                 <div class="col col-66">
-                  {{market1Data.usd|number:currentScript.currency2Decimal}}
+                  {{ market1Data.usd | number: currentScript.currency2Decimal }}
                 </div>
               </div>
               <div class="row">
                 <div class="col col-33">
-                  <label for="">{{currency1}}</label>
+                  <label for="">{{ currency1 }}</label>
                 </div>
                 <div class="col col-66">
-                  {{market1Data.bitcoin|number:currentScript.currency1Decimal}}
+                  {{
+                    market1Data.bitcoin | number: currentScript.currency1Decimal
+                  }}
                 </div>
               </div>
             </div>
@@ -171,18 +150,20 @@
             <div class="bid-box">
               <div class="row">
                 <div class="col col-33">
-                  <label for="">{{currency2}}</label>
+                  <label for="">{{ currency2 }}</label>
                 </div>
                 <div class="col col-66">
-                  {{market2Data.usd|number:currentScript.currency2Decimal}}
+                  {{ market2Data.usd | number: currentScript.currency2Decimal }}
                 </div>
               </div>
               <div class="row">
                 <div class="col col-33">
-                  <label for=""> {{currency1}}</label>
+                  <label for=""> {{ currency1 }}</label>
                 </div>
                 <div class="col col-66">
-                  {{market2Data.bitcoin|number:currentScript.currency1Decimal}}
+                  {{
+                    market2Data.bitcoin | number: currentScript.currency1Decimal
+                  }}
                 </div>
               </div>
             </div>
@@ -205,7 +186,7 @@
                   <label for=""> Ask</label>
                 </div>
                 <div class="col col-66">
-                  {{ratioBuySell.ask|number:currentScript.rateDecimal}}
+                  {{ ratioBuySell.ask | number: currentScript.rateDecimal }}
                 </div>
               </div>
               <div class="row">
@@ -213,7 +194,7 @@
                   <label for=""> Bid </label>
                 </div>
                 <div class="col col-66">
-                  {{ratioBuySell.bid|number:currentScript.rateDecimal}}
+                  {{ ratioBuySell.bid | number: currentScript.rateDecimal }}
                 </div>
               </div>
             </div>
@@ -225,7 +206,7 @@
                   <label for=""> Ask </label>
                 </div>
                 <div class="col col-66">
-                  {{ratioSellBuy.ask|number:currentScript.rateDecimal}}
+                  {{ ratioSellBuy.ask | number: currentScript.rateDecimal }}
                 </div>
               </div>
               <div class="row">
@@ -233,7 +214,7 @@
                   <label for=""> Bid </label>
                 </div>
                 <div class="col col-66">
-                  {{ratioSellBuy.bid|number:currentScript.rateDecimal}}
+                  {{ ratioSellBuy.bid | number: currentScript.rateDecimal }}
                 </div>
               </div>
             </div>
@@ -256,7 +237,7 @@
                   <label for=""> Buy Sell </label>
                 </div>
                 <div class="col">
-                  {{ratioBuySell.ratio|number:4}}
+                  {{ ratioBuySell.ratio | number: 4 }}
                 </div>
               </div>
               <div class="row">
@@ -264,7 +245,7 @@
                   <label for="">RatioReq</label>
                 </div>
                 <div class="col">
-                  {{ratioBuySell.condition|number:4}}
+                  {{ ratioBuySell.condition | number: 4 }}
                 </div>
               </div>
               <div class="row">
@@ -272,7 +253,7 @@
                   <label for=""> Min Qty </label>
                 </div>
                 <div class="col">
-                  {{ratioBuySell.amountBTC}}
+                  {{ ratioBuySell.amountBTC }}
                 </div>
               </div>
             </div>
@@ -284,7 +265,7 @@
                   <label for=""> Sell Buy </label>
                 </div>
                 <div class="col">
-                  {{ratioSellBuy.ratio|number:4}}
+                  {{ ratioSellBuy.ratio | number: 4 }}
                 </div>
               </div>
               <div class="row">
@@ -292,7 +273,7 @@
                   <label for=""> RatioReq</label>
                 </div>
                 <div class="col">
-                  {{ratioSellBuy.condition|number:4}}
+                  {{ ratioSellBuy.condition | number: 4 }}
                 </div>
               </div>
               <div class="row">
@@ -300,7 +281,7 @@
                   <label for=""> Min Qty </label>
                 </div>
                 <div class="col">
-                  {{ratioSellBuy.amountBTC}}
+                  {{ ratioSellBuy.amountBTC }}
                 </div>
               </div>
             </div>

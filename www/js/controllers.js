@@ -26,12 +26,15 @@ angular
 
     $scope.currency1 = $scope.currentScript.currency1;
     $scope.currency2 = $scope.currentScript.currency2;
-    $scope.currencyShortName2 = $scope.currentScript.currencyShortName1;
-    $scope.currencyShortName1 = $scope.currentScript.currencyShortName2;
+    $scope.currencyShortName1 = $scope.currentScript.currencyShortName1;
+    $scope.currencyShortName2 = $scope.currentScript.currencyShortName2;
     $scope.market = $scope.currencyShortName2 + "/" + $scope.currencyShortName1;
 
-    $scope.initialRipple = $scope.currentScript.initialCurrency1;
-    $scope.initialBitcoin = $scope.currentScript.initialCurrency2;
+    $scope.initialCurrency1 = $scope.currentScript.initialCurrency1;
+    $scope.initialCurrency2 = $scope.currentScript.initialCurrency2;
+    $scope.finalCurrency1 = $scope.currentScript.finalCurrency1;
+    $scope.finalCurrency2 = $scope.currentScript.finalCurrency2;
+
     $scope.initialDateMoment = moment(
       $scope.currentScript.initialDate,
       "MM-DD-YYYY"
@@ -43,72 +46,17 @@ angular
     $scope.initialDate = $scope.initialDateMoment.toDate();
     $scope.currentDate = $scope.currentDateMoment.toDate();
 
-    socket.on("market-rates", function(market1) {
-      console.log(market1);
+    socket.on("market-rates", function(marketData) {
+      getCurrentAmount(marketData);
     });
 
-    // function getCurrentAmount() {
-    //   async.parallel({
-    //     balance: apiService.balance,
-    //     marketsData: apiService.getLastMarketData
-    //   }, function (err, data) {
-    //     console.log(data);
-    //     $scope.oldBalance = data.balance.old;
-    //     $scope.newBalance = data.balance.new;
-    //     $scope.newBinance = _.find($scope.newBalance, function (n) {
-    //       return n.market == "Binance";
-    //     });
-    //     $scope.market1Data = {};
-
-    //     $scope.market1Data.bitcoin = parseFloat($scope.newBinance.data[$scope.currencyShortName2].available) + parseFloat($scope.newBinance.data[$scope.currencyShortName2].onOrder);
-    //     $scope.market1Data.usd = parseFloat($scope.newBinance.data.BTC.available) + parseFloat($scope.newBinance.data.BTC.onOrder);
-    //     $scope.newHitbtc = _.find($scope.newBalance, function (n) {
-    //       return n.market == "Hitbtc";
-    //     });
-    //     $scope.market2Data = {};
-    //     $scope.market2Data.bitcoin = parseFloat($scope.newHitbtc.data[$scope.currencyShortName2].cash);
-    //     $scope.market2Data.usd = parseFloat($scope.newHitbtc.data.BTC.cash);
-    //     $scope.totalUsd = $scope.market1Data.usd + $scope.market2Data.usd;
-    //     $scope.totalBitcoin = $scope.market1Data.bitcoin + $scope.market2Data.bitcoin;
-    //     $scope.totalValueUsd = $scope.totalUsd + ($scope.totalBitcoin * $scope.valueOfBitcoin);
-    //     $scope.totalValueBitcoin = $scope.totalValueUsd / $scope.valueOfBitcoin;
-    //     $scope.rippleGrowth = ($scope.totalBitcoin / $scope.initialRipple - 1);
-    //     $scope.bitcoinGrowth = ($scope.totalUsd / $scope.initialBitcoin - 1);
-    //     $scope.annulizedRipple = $scope.rippleGrowth * daysInYear / days;
-    //     $scope.annulizedBitcoin = $scope.bitcoinGrowth * daysInYear / days;
-    //   });
-    // }
-    // getCurrentAmount();
-
-    // function getArbitrage() {
-    //   apiService.getArbitrage(function (err, data) {
-    //     $scope.arbitrage = data.data;
-    //     console.log($scope.arbitrage);
-    //   });
-    // }
-    // getArbitrage();
-    // socket.on('connect', function () {
-    //   socket.off("RatioBuySell", socketObj.ratioBuySell);
-    //   socketObj.ratioBuySell = function (data) {
-    //     $scope.ratioBuySell = data;
-    //     $scope.$apply();
-    //   };
-    //   socket.on("RatioBuySell", socketObj.ratioBuySell);
-
-    //   socket.off("RatioSellBuy", socketObj.ratioSellBuy);
-    //   socketObj.ratioSellBuy = function (data) {
-    //     $scope.ratioSellBuy = data;
-    //     $scope.$apply();
-    //   };
-    //   socket.on("RatioSellBuy", socketObj.ratioSellBuy);
-
-    //   socket.off("Arbitrage", socketObj.arbitrageData);
-    //   socketObj.arbitrageData = function (data) {
-    //     $scope.arbitrageData = data;
-    //     $scope.$apply();
-    //   };
-    //   socket.on("Arbitrage", socketObj.arbitrageData);
-    // });
+    function getCurrentAmount(data) {
+      $scope.marketData = data;
+      $scope.growth1 = $scope.finalCurrency1 / $scope.initialCurrency1 - 1;
+      $scope.growth2 = $scope.finalCurrency2 / $scope.initialCurrency2 - 1;
+      $scope.annualizedGrowth1 = ($scope.growth1 * daysInYear) / days;
+      $scope.annualizedGrowth2 = ($scope.growth2 * daysInYear) / days;
+    }
   })
 
   .controller("MarketlistsCtrl", function(
