@@ -31,6 +31,7 @@ angular
     $scope.market = $scope.currencyShortName2 + "/" + $scope.currencyShortName1;
 
     $scope.minQuantity = $scope.currentScript.minQuantity;
+    $scope.requiredRatio = $scope.currentScript.requiredRatio;
 
     $scope.initialCurrency1 = $scope.currentScript.initialCurrency1;
     $scope.initialCurrency2 = $scope.currentScript.initialCurrency2;
